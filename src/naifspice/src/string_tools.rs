@@ -1,6 +1,20 @@
 pub use crate::error::*;
 pub use crate::sys::SpiceChar;
-use std::ffi::CStr;
+use std::ffi::{CStr, CString};
+use std::fmt::{Display, Formatter};
+
+#[derive(Debug)]
+struct StringConversionError {
+    msg: String,
+}
+
+impl Display for StringConversionError {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "String conversion failed: {}", self.msg)
+    }
+}
+
+impl SpiceError for StringConversionError {}
 
 ///
 /// Creates a `*mut SpiceChar` out of a string literal that can be used with cspice functions.
@@ -33,6 +47,21 @@ pub fn vec_to_string(vec: &Vec<SpiceChar>) -> String {
     return "".to_string();
 }
 
+/// helper to easier call functions that take mut pointers to raw c byte arrays with
+/// Uses a callback to be on the safe side of the CString life time
+pub fn with_string_ref<F, T>(s: &str, cb: F) -> SpiceResult<T>
+where
+    F: Fn(*mut SpiceChar) -> SpiceResult<T>,
+{
+    match CString::new(s) {
+        Ok(str) => {
+            let mut bytes = str.into_bytes_with_nul();
+            cb(bytes.as_mut_ptr() as *mut SpiceChar)
+        }
+        Err(e) => Err(Box::new(StringConversionError { msg: e.to_string() })),
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -53,7 +82,7 @@ mod tests {
 
     #[test]
     #[serial]
-    pub fn write_and_read_back() {
+    pub fn test_write_and_read_back() {
         unsafe {
             reset_c();
             erract_c(spice_str!("SET"), 6, spice_str!("RETURN"));
@@ -63,5 +92,12 @@ mod tests {
             let str = vec_to_string(&dst);
             assert_eq!(str, "RETURN");
         }
+    }
+
+    #[test]
+    #[serial]
+    pub fn test_with_str() {
+        assert!(with_string_ref("Haaalooooo", |_e| { Ok(()) }).is_ok());
+        assert!(with_string_ref("Hiiihuuu\0with_err", |_e| { Ok(()) }).is_err());
     }
 }

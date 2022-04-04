@@ -21,11 +21,7 @@ impl Display for SpiceInitError {
     }
 }
 
-impl SpiceError for SpiceInitError {
-    fn spice_error_text(&self) -> String {
-        self.msg.clone()
-    }
-}
+impl SpiceError for SpiceInitError {}
 
 impl Spice {
     pub fn create() -> SpiceResult<Self> {
@@ -56,6 +52,8 @@ impl Drop for Spice {
 }
 
 mod error_handling;
+
+mod kernels;
 
 #[cfg(test)]
 mod tests {

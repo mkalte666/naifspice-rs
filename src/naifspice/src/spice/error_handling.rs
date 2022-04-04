@@ -1,4 +1,4 @@
-use crate::error::{SpiceError, SpiceResult};
+use crate::error::*;
 use crate::Spice;
 use std::fmt::{Display, Formatter};
 
@@ -19,11 +19,7 @@ impl Display for SpiceApiError {
     }
 }
 
-impl SpiceError for SpiceApiError {
-    fn spice_error_text(&self) -> String {
-        self.long.clone()
-    }
-}
+impl SpiceError for SpiceApiError {}
 
 impl Spice {
     /// checks if an error is present. if yes, it clears the flag and returns it as an Err()
@@ -119,7 +115,7 @@ mod tests {
     #[serial]
     pub fn test_api_errors() {
         if let Ok(api) = Spice::create() {
-            assert!(api.disable_spice_error_texts().is_ok());
+            assert!(api.disable_error_texts().is_ok());
             unsafe {
                 furnsh_c(spice_str!("Not A file . png"));
             }
