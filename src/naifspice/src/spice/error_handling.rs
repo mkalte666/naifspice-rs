@@ -26,7 +26,10 @@ impl SpiceError for SpiceApiError {
 }
 
 impl Spice {
+    /// checks if an error is present. if yes, it clears the flag and returns it as an Err()
     pub(super) fn check_for_error(&self) -> SpiceResult<()> {
+        // the error path is quite full of copies, but errors are usually quite bad anyway.
+        // Thus its probably no issue that this is a lot of code to copy a bit of text.
         if unsafe { failed_c() } == SPICETRUE as i32 {
             let mut short_bytes = null_vec(SPICE_ERROR_LMSGLN as usize);
             let mut long_bytes = null_vec(SPICE_ERROR_LMSGLN as usize);
@@ -76,6 +79,7 @@ impl Spice {
         }
     }
 
+    /// Setup function for the error handling.
     pub(super) fn setup_error_handling(&self) -> SpiceResult<()> {
         unsafe {
             reset_c();
@@ -86,6 +90,8 @@ impl Spice {
         Ok(())
     }
 
+    /// Disables the error printing of SPICE.
+    /// Errors can still be viewed and all explainations read by lookig at SpiceError returned by all functions that might cause one.
     pub fn disable_spice_error_texts(&self) -> SpiceResult<()> {
         unsafe {
             errdev_c(spice_str!("SET"), 0, spice_str!("NULL"));
@@ -94,6 +100,7 @@ impl Spice {
         Ok(())
     }
 
+    /// Turns SPICE error output that was disabled with disable_spice_error_texts back on.
     pub fn enable_spice_error_texts(&self) -> SpiceResult<()> {
         unsafe {
             errdev_c(spice_str!("SET"), 0, spice_str!("SCREEN"));
