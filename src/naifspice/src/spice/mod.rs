@@ -32,7 +32,9 @@ impl Spice {
         if let Ok(_) =
             INSTANCE_EXISTS.compare_exchange(false, true, Ordering::SeqCst, Ordering::SeqCst)
         {
-            Ok(Self { _empty: () })
+            let api = Self { _empty: () };
+            api.setup_error_handling()?;
+            Ok(api)
         } else {
             Err(Box::new(SpiceInitError {
                 msg: "Tried to create multiple instances".to_string(),
@@ -53,10 +55,15 @@ impl Drop for Spice {
     }
 }
 
+mod error_handling;
+
 #[cfg(test)]
 mod tests {
     use super::*;
+    use serial_test::serial;
+
     #[test]
+    #[serial]
     fn spice_single_instance() {
         let a = Spice::create();
         assert!(a.is_ok());

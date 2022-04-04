@@ -2,6 +2,8 @@ pub use crate::error::*;
 pub use crate::sys::SpiceChar;
 use std::ffi::CStr;
 
+///
+/// Creates a `*mut SpiceChar` out of a string literal that can be used with cspice functions.
 #[macro_export]
 macro_rules! spice_str {
     ($lit:expr) => {
@@ -9,12 +11,14 @@ macro_rules! spice_str {
     };
 }
 
+/// Create a vector with `len` elements of SpiceChar that are all null
 pub fn null_vec(len: usize) -> Vec<SpiceChar> {
     let mut vec = Vec::new();
     vec.resize(len, '\0' as SpiceChar);
     vec
 }
 
+/// Create a `String` out of a vector of SpiceChars. Will return empty string if the vector is empty or not created with `null_vec`
 pub fn vec_to_string(vec: &Vec<SpiceChar>) -> String {
     if vec.len() > 1 && vec.ends_with(&['\0' as SpiceChar]) {
         unsafe {
