@@ -1,18 +1,18 @@
-use std::sync::atomic::{AtomicBool, Ordering};
-use crate::error::{SpiceResult, SpiceError};
+use crate::error::{SpiceError, SpiceResult};
 use std::fmt::{Display, Formatter};
+use std::sync::atomic::{AtomicBool, Ordering};
 
 /// Struct that implements the spice api, and guards it from multi-threaded access.
 #[derive(Debug)]
 pub struct Spice {
-    _empty: ()
+    _empty: (),
 }
 
-static INSTANCE_EXISTS : AtomicBool = AtomicBool::new(false);
+static INSTANCE_EXISTS: AtomicBool = AtomicBool::new(false);
 
 #[derive(Debug)]
 pub struct SpiceInitError {
-    msg : String,
+    msg: String,
 }
 
 impl Display for SpiceInitError {
@@ -29,17 +29,23 @@ impl SpiceError for SpiceInitError {
 
 impl Spice {
     pub fn create() -> SpiceResult<Self> {
-        if let Ok(_) = INSTANCE_EXISTS.compare_exchange(false, true, Ordering::SeqCst,Ordering::SeqCst) {
-            Ok(Self{_empty: ()})
+        if let Ok(_) =
+            INSTANCE_EXISTS.compare_exchange(false, true, Ordering::SeqCst, Ordering::SeqCst)
+        {
+            Ok(Self { _empty: () })
         } else {
-            Err(Box::new(SpiceInitError{msg: "Tried to create multiple instances".to_string()}))
+            Err(Box::new(SpiceInitError {
+                msg: "Tried to create multiple instances".to_string(),
+            }))
         }
     }
 }
 
 impl Drop for Spice {
     fn drop(&mut self) {
-        if let Ok(_) = INSTANCE_EXISTS.compare_exchange(true, false, Ordering::SeqCst,Ordering::SeqCst) {
+        if let Ok(_) =
+            INSTANCE_EXISTS.compare_exchange(true, false, Ordering::SeqCst, Ordering::SeqCst)
+        {
             // done
         } else {
             panic!("Spice protection atomic (INSTANCE_EXISTS) cannot be set to false from true. This hints at a programming mistake on the api side, please create an issue. Thanks!");

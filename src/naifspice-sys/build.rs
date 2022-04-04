@@ -1,10 +1,10 @@
 use sha2::{Digest, Sha256};
-use std::io::Read;
+use std::env;
 use std::fs;
+use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 use tar::Archive;
-use std::env;
 
 const DOWNLOAD_CSPICE_NAME: &'static str = "cspice";
 const CSPICE_BUILD_SCRIPT_NAME: &'static str = "./makeall.csh";
@@ -23,12 +23,11 @@ const DOWNLOAD_SPICE_NAME_TAR: &'static str = "cspice.tar";
 #[cfg(target_os = "linux")]
 const DOWNLOAD_SPICE_NAME_Z: &'static str = "cspice.tar.Z";
 
-fn main() -> Result<(),String>
-{
+fn main() -> Result<(), String> {
     download_and_build_cspice()?;
 
     #[cfg(feature = "copy_bindgen_includes")]
-        copy_bindgen_sources()?;
+    copy_bindgen_sources()?;
 
     Ok(())
 }
@@ -36,7 +35,6 @@ fn main() -> Result<(),String>
 pub fn get_out_dir() -> PathBuf {
     PathBuf::from(env::var_os("OUT_DIR").unwrap())
 }
-
 
 fn download(url: &str, checksum: &str, target_filename: &PathBuf) -> Result<(), String> {
     if target_filename.exists() {
@@ -68,15 +66,13 @@ fn download(url: &str, checksum: &str, target_filename: &PathBuf) -> Result<(), 
     Ok(())
 }
 
-fn download_cspice() -> Result<(), String>
-{
+fn download_cspice() -> Result<(), String> {
     let z_name = get_out_dir().join(Path::new(DOWNLOAD_SPICE_NAME_Z));
     download(DOWNLOAD_SPICE_URL, DOWNLOAD_SPICE_SHA256, &z_name)?;
     Ok(())
 }
 
-fn download_and_build_cspice() -> Result<(), String>
-{
+fn download_and_build_cspice() -> Result<(), String> {
     download_cspice()?;
 
     let name_tar = get_out_dir().join(DOWNLOAD_SPICE_NAME_TAR);

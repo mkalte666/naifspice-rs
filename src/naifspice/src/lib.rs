@@ -6,3 +6,4 @@ pub mod spice;
 pub use spice::*;
 
 pub mod error;
+pub mod string_tools;
