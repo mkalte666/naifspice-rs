@@ -117,9 +117,5 @@ fn download_and_build_cspice() -> Result<(), String>
         name_cspice_dir.join("lib").to_str().unwrap()
     );
     println!("cargo:rustc-link-lib=cspice");
-    println!(
-        "cargo:rustc-cdylib-link-arg=-I{}",
-        name_cspice_dir.join("lib").to_str().unwrap()
-    );
     Ok(())
 }
