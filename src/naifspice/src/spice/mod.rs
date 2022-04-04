@@ -52,8 +52,8 @@ impl Drop for Spice {
 }
 
 mod error_handling;
-
 mod kernels;
+mod time;
 
 #[cfg(test)]
 mod tests {
