@@ -16,8 +16,11 @@ pub mod string_tools;
 #[macro_use]
 mod string_tools;
 
-pub mod spice;
+#[cfg(test)]
+#[macro_use]
+mod test_tools;
 
 pub mod error;
+pub mod spice;
 
 pub use spice::*;
