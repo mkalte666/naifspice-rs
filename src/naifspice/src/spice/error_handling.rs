@@ -92,7 +92,7 @@ impl Spice {
 
     /// Disables the error printing of SPICE.
     /// Errors can still be viewed and all explainations read by lookig at SpiceError returned by all functions that might cause one.
-    pub fn disable_spice_error_texts(&self) -> SpiceResult<()> {
+    pub fn disable_error_texts(&self) -> SpiceResult<()> {
         unsafe {
             errdev_c(spice_str!("SET"), 0, spice_str!("NULL"));
         }
@@ -101,7 +101,7 @@ impl Spice {
     }
 
     /// Turns SPICE error output that was disabled with disable_spice_error_texts back on.
-    pub fn enable_spice_error_texts(&self) -> SpiceResult<()> {
+    pub fn enable_error_texts(&self) -> SpiceResult<()> {
         unsafe {
             errdev_c(spice_str!("SET"), 0, spice_str!("SCREEN"));
         }
