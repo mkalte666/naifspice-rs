@@ -5,6 +5,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 "mostused" means that api is listed here: https://naif.jpl.nasa.gov/pub/naif/toolkit`_`docs/C/info/mostused.html
 
 ### A
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `APPNDC_C` | :x: | :x: | _ | _ | Append an item to a character cell
@@ -15,6 +16,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `AZLREC_C` | :x: | :x: | _ | _ | AZ/EL to rectangular coordinates
 
 ### B
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `B1900_C` | :x: | :x: | _ | _ | Besselian Date 1900.0
@@ -39,6 +41,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `BSRCHI_C` | :x: | :x: | _ | _ | Binary search for an integer value
 
 ### C
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `CARD_C` | :x: | :x: | _ | _ | Cardinality of a cell
@@ -88,6 +91,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `CYLSPH_C` | :x: | :x: | _ | _ | Cylindrical to spherical
 
 ### D
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `DAFAC_C` | :x: | :x: | _ | _ | DAF add comments
@@ -193,6 +197,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `DVSEP_C` | :x: | :x: | _ | _ | Time derivative of separation angle
 
 ### E
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `EDLIMB_C` | :x: | :x: | _ | _ | Ellipsoid Limb
@@ -259,6 +264,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `EXPOOL_C` | :x: | :x: | _ | _ | Confirm the existence of a pooled kernel variable
 
 ### F
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `FAILED_C` | :x: | :x: | _ | _ | Error Status Indicator
@@ -273,6 +279,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `FURNSH_C` | :x: | :x: | _ | _ | Furnish a program with SPICE kernels
 
 ### F
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `GCPOOL_C` | :x: | :x: | _ | _ | Get character data from the kernel pool
@@ -314,6 +321,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `GNPOOL_C` | :x: | :x: | _ | _ | Get names of kernel pool variables
 
 ### H
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `HALFPI_C` | :x: | :x: | _ | _ | Half the value of pi
@@ -322,6 +330,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `HX2DP_C` | :x: | :x: | _ | _ | Hexadecimal string to d.p. number
 
 ### I
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `IDENT_C` | :x: | :x: | _ | _ | Return the 3x3 identity matrix
@@ -351,6 +360,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `ISWHSP_C` | :x: | :x: | _ | _ | Determine whether a string is white space
 
 ### J
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `J1900_C` | :x: | :x: | _ | _ | Julian Date of 1900.0 JAN 0.5
@@ -361,6 +371,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 
 
 ### K
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `KCLEAR_C` | :x: | :x: | _ | _ | Keeper clear
@@ -372,6 +383,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 
 
 ### L
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `LASTNB_C` | :x: | :x: | _ | _ | Last non-blank character
@@ -406,6 +418,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `LXQSTR_C` | :x: | :x: | _ | _ | Lex quoted string
 
 ### M
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `M2EUL_C` | :x: | :x: | _ | _ | Matrix to Euler angles
@@ -431,6 +444,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `MXVG_C` | :x: | :x: | _ | _ | Matrix times vector, general dimension
 
 ### N
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `NAMFRM_C` | :x: | :x: | _ | _ | Name to frame
@@ -446,6 +460,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `NVP2PL_C` | :x: | :x: | _ | _ | Normal vector and point to plane
 
 ### O
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `OCCULT_C` | :x: | :x: | _ | _ | find occultation type at time
@@ -459,6 +474,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `OSCLTX_C` | :x: | :x: | _ | _ | Extended osculating elements from state
 
 ### P
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `PCKCLS_C` | :x: | :x: | _ | _ | PCK, close file
@@ -496,6 +512,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `PXFRM2_C` | :x: | :x: | _ | _ | Position Transform Matrix, Different Epochs
 
 ### Q
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `Q2M_C` | :x: | :x: | _ | _ | Quaternion to matrix
@@ -505,6 +522,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `QXQ_C` | :x: | :x: | _ | _ | Quaternion times quaternion
 
 ### R
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `RADREC_C` | :x: | :x: | _ | _ | Range, RA and DEC to rectangular coordinates
@@ -541,6 +559,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `RQUAD_C` | :x: | :x: | _ | _ | Roots of a quadratic equation
 
 ### S
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `SAELGV_C` | :x: | :x: | _ | _ | Semi-axes of ellipse from generating vectors
@@ -639,6 +658,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `SZPOOL_C` | :x: | :x: | _ | _ | Get size limitations of the kernel pool
 
 ### T
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `TANGPT_C` | :x: | :x: | _ | _ | Ray-ellipsoid tangent point
@@ -665,6 +685,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `TYEAR_C` | :x: | :x: | _ | _ | Seconds per tropical year
 
 ### U
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `UCASE_C` | :x: | :x: | _ | _ | Convert to uppercase
@@ -680,6 +701,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `UTC2ET_C` | :x: | :x: | _ | _ | UTC to Ephemeris Time
 
 ### V
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `VADD_C` | :x: | :x: | _ | _ | Vector addition, 3 dimensional
@@ -723,6 +745,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `VZEROG_C` | :x: | :x: | _ | _ | Is a vector the zero vector? -- general dim.
 
 ### W
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `WNCARD_C` | :x: | :x: | _ | _ | Cardinality of a double precision window
@@ -744,6 +767,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `WNVALD_C` | :x: | :x: | _ | _ | Validate a DP window
 
 ### X
+
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |...|...|...|...|...|...|
 | `XF2EUL_C` | :x: | :x: | _ | _ | State transformation to Euler angles
