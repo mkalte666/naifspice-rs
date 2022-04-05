@@ -11,27 +11,27 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `APPNDC_C` | :x: | :x: | _ | _ | Append an item to a character cell
 | `APPNDD_C` | :x: | :x: | _ | _ | Append an item to a double precision cell
 | `APPNDI_C` | :x: | :x: | _ | _ | Append an item to an integer cell
-| `AXISAR_C` | :x: | :x: | _ | _ | Axis and angle to rotation
-| `AZLCPO_C` | :x: | :x: | _ | _ | AZ/EL, constant position observer state
-| `AZLREC_C` | :x: | :x: | _ | _ | AZ/EL to rectangular coordinates
+| `AXISAR_C` | :x: | :heavy_check_mark: | _ | _ | Axis and angle to rotation
+| `AZLCPO_C` | :x: | :heavy_check_mark: | _ | _ | AZ/EL, constant position observer state
+| `AZLREC_C` | :x: | :heavy_check_mark: | _ | _ | AZ/EL to rectangular coordinates
 
 ### B
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `B1900_C` | :x: | :x: | _ | _ | Besselian Date 1900.0
-| `B1950_C` | :x: | :x: | _ | _ | Besselian Date 1950.0
+| `B1900_C` | :x: | :heavy_check_mark: | _ | _ | Besselian Date 1900.0
+| `B1950_C` | :x: | :heavy_check_mark: | _ | _ | Besselian Date 1950.0
 | `BADKPV_C` | :x: | :x: | _ | _ | Bad Kernel Pool Variable
 | `BLTFRM_C` | :x: | :x: | _ | _ | Built-in frame IDs
-| `BODC2N_C` | :x: | :x: | _ | _ | Body ID code to name translation
+| `BODC2N_C` | :x: | :heavy_check_mark: | _ | _ | Body ID code to name translation
 | `BODC2S_C` | :x: | :x: | _ | _ | Body ID code to string translation
 | `BODDEF_C` | :x: | :x: | _ | _ | Body name/ID code definition
-| `BODFND_C` | :x: | :x: | _ | _ | Find values from the kernel pool
-| `BODN2C_C` | :x: | :x: | _ | _ | Body name to ID code translation
+| `BODFND_C` | :x: | :heavy_check_mark: | _ | _ | Find values from the kernel pool
+| `BODN2C_C` | :x: | :heavy_check_mark: | _ | _ | Body name to ID code translation
 | `BODS2C_C` | :x: | :x: | _ | _ | Body string to ID code translation
 | `BODVAR_C` | :x: | :x: | _ | _ | Return values from the kernel pool
 | `BODVCD_C` | :x: | :x: | _ | _ | Return d.p. values from the kernel pool
-| `BODVRD_C` | :x: | :x: | _ | _ | Return d.p. values from the kernel pool
+| `BODVRD_C` | :x: | :heavy_check_mark: | _ | _ | Return d.p. values from the kernel pool
 | `BRCKTD_C` | :x: | :x: | _ | _ | Bracket a d.p. value within an interval
 | `BRCKTI_C` | :x: | :x: | _ | _ | Bracket an integer value within an interval
 | `BSCHOC_C` | :x: | :x: | _ | _ | Binary search with order vector, character
@@ -53,20 +53,20 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `CHBVAL_C` | :x: | :x: | _ | _ | Value of a Chebyshev polynomial expansion
 | `CHKIN_C` | :x: | :x: | _ | _ | module Check In
 | `CHKOUT_C` | :x: | :x: | _ | _ | Module Check Out
-| `CIDFRM_C` | :x: | :x: | _ | _ | center SPK ID frame
+| `CIDFRM_C` | :x: | :heavy_check_mark: | _ | _ | center SPK ID frame
 | `CKCLS_C` | :x: | :x: | _ | _ | CK, Close file
 | `CKCOV_C` | :x: | :x: | _ | _ | CK coverage
 | `CKFROT_C` | :x: | :x: | _ | _ | CK frame, find position rotation
 | `CKFXFM_C` | :x: | :x: | _ | _ | CK frame, find state transformation
 | `CKGP_C` | :x: | :x: | _ | _ | C-kernel, get pointing
-| `CKGPAV_C` | :x: | :x: | _ | _ | C-kernel, get pointing and angular velocity
+| `CKGPAV_C` | :x: | :heavy_check_mark: | _ | _ | C-kernel, get pointing and angular velocity
 | `CKGR02_C` | :x: | :x: | _ | _ | C-kernel, get record, type 02
 | `CKGR03_C` | :x: | :x: | _ | _ | C-kernel, get record, type 03
 | `CKLPF_C` | :x: | :x: | _ | _ | CK, load pointing file
 | `CKMETA_C` | :x: | :x: | _ | _ | CK ID to associated SCLK
 | `CKNR02_C` | :x: | :x: | _ | _ | C-kernel, number of records, type 02
 | `CKNR03_C` | :x: | :x: | _ | _ | C-kernel, number of records, type 03
-| `CKOBJ_C` | :x: | :x: | _ | _ | CK objects
+| `CKOBJ_C` | :x: | :heavy_check_mark: | _ | _ | CK objects
 | `CKOPN_C` | :x: | :x: | _ | _ | CK, open new file.
 | `CKUPF_C` | :x: | :x: | _ | _ | CK, Unload pointing file
 | `CKW01_C` | :x: | :x: | _ | _ | C-Kernel, write segment to C-kernel, data type 1
@@ -76,19 +76,19 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `CLEARC_C` | :x: | :x: | _ | _ | Clear a two-dimensional character array
 | `CLEARD_C` | :x: | :x: | _ | _ | Clear a double precision array
 | `CLEARI_C` | :x: | :x: | _ | _ | Clear an integer array
-| `CLIGHT_C` | :x: | :x: | _ | _ | C, Speed of light in a vacuum
+| `CLIGHT_C` | :x: | :heavy_check_mark: | _ | _ | C, Speed of light in a vacuum
 | `CLPOOL_C` | :x: | :x: | _ | _ | Clear the pool of kernel variables
 | `CMPRSS_C` | :x: | :x: | _ | _ | Compress a character string
-| `CNMFRM_C` | :x: | :x: | _ | _ | Center name to associated frame
-| `CONICS_C` | :x: | :x: | _ | _ | Determine state from conic elements
+| `CNMFRM_C` | :x: | :heavy_check_mark: | _ | _ | Center name to associated frame
+| `CONICS_C` | :x: | :heavy_check_mark: | _ | _ | Determine state from conic elements
 | `CONVRT_C` | :x: | :x: | _ | _ | Convert Units
 | `COPY_C` | :x: | :x: | _ | _ | Copy a SPICE cell
 | `CPOS_C` | :x: | :x: | _ | _ | Character position
 | `CPOSR_C` | :x: | :x: | _ | _ | Character position, reverse
 | `CVPOOL_C` | :x: | :x: | _ | _ | Check variable in the pool for update
-| `CYLLAT_C` | :x: | :x: | _ | _ | Cylindrical to latitudinal
-| `CYLREC_C` | :x: | :x: | _ | _ | Cylindrical to rectangular
-| `CYLSPH_C` | :x: | :x: | _ | _ | Cylindrical to spherical
+| `CYLLAT_C` | :x: | :heavy_check_mark: | _ | _ | Cylindrical to latitudinal
+| `CYLREC_C` | :x: | :heavy_check_mark: | _ | _ | Cylindrical to rectangular
+| `CYLSPH_C` | :x: | :heavy_check_mark: | _ | _ | Cylindrical to spherical
 
 ### D
 
@@ -142,7 +142,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `DAZLDR_C` | :x: | :x: | _ | _ | Derivative of AZ/EL w.r.t. rectangular
 | `DCYLDR_C` | :x: | :x: | _ | _ | Derivative of cylindrical w.r.t. rectangular
 | `DELTET_C` | :x: | :x: | _ | _ | Delta ET, ET | :x: | :x: | _ | _ | UTC
-| `DET_C` | :x: | :x: | _ | _ | Determinant of a double precision 3x3 matrix
+| `DET_C` | :x: | :heavy_check_mark: | _ | _ | Determinant of a double precision 3x3 matrix
 | `DGEODR_C` | :x: | :x: | _ | _ | Derivative of geodetic w.r.t. rectangular
 | `DIAGS2_C` | :x: | :x: | _ | _ | Diagonalize symmetric 2x2 matrix
 | `DIFF_C` | :x: | :x: | _ | _ | Difference of two sets
@@ -159,7 +159,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `DPGRDR_C` | :x: | :x: | _ | _ | Derivative of planetographic w.r.t. rectangular
 | `DPMAX_C` | :x: | :x: | _ | _ | Largest DP number
 | `DPMIN_C` | :x: | :x: | _ | _ | Smallest DP number
-| `DPR_C` | :x: | :x: | _ | _ | Degrees per radian
+| `DPR_C` | :x: | :heavy_check_mark: | _ | _ | Degrees per radian
 | `DRDAZL_C` | :x: | :x: | _ | _ | Derivative of rectangular w.r.t. AZ/EL
 | `DRDCYL_C` | :x: | :x: | _ | _ | Derivative of rectangular w.r.t. cylindrical
 | `DRDGEO_C` | :x: | :x: | _ | _ | Derivative of rectangular w.r.t. geodetic
@@ -174,24 +174,24 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `DSKI02_C` | :x: | :x: | _ | _ | DSK, fetch integer type 2 data
 | `DSKMI2_C` | :x: | :x: | _ | _ | DSK, make spatial index for type 2 segment
 | `DSKN02_C` | :x: | :x: | _ | _ | DSK, type 2, compute normal vector for plate
-| `DSKOBJ_C` | :x: | :x: | _ | _ | DSK, get object IDs
+| `DSKOBJ_C` | :x: | :heavy_check_mark: | _ | _ | DSK, get object IDs
 | `DSKOPN_C` | :x: | :x: | _ | _ | DSK, open new file
-| `DSKP02_C` | :x: | :x: | _ | _ | DSK, fetch type 2 plate data
+| `DSKP02_C` | :x: | :heavy_check_mark: | _ | _ | DSK, fetch type 2 plate data
 | `DSKRB2_C` | :x: | :x: | _ | _ | DSK, determine range bounds for plate set
-| `DSKSRF_C` | :x: | :x: | _ | _ | DSK, get surface IDs for body
+| `DSKSRF_C` | :x: | :heavy_check_mark: | _ | _ | DSK, get surface IDs for body
 | `DSKSTL_C` | :x: | :x: | _ | _ | DSK, set tolerance
 | `DSKV02_C` | :x: | :x: | _ | _ | DSK, fetch type 2 vertex data
 | `DSKW02_C` | :x: | :x: | _ | _ | DSK, write type 2 segment
 | `DSKX02_C` | :x: | :x: | _ | _ | DSK, ray-surface intercept, type 2
-| `DSKXSI_C` | :x: | :x: | _ | _ | DSK, ray-surface intercept with source information
-| `DSKXV_C` | :x: | :x: | _ | _ | DSK, ray-surface intercept, vectorized
-| `DSKZ02_C` | :x: | :x: | _ | _ | DSK, fetch type 2 model size parameters
+| `DSKXSI_C` | :x: | :heavy_check_mark: | _ | _ | DSK, ray-surface intercept with source information
+| `DSKXV_C` | :x: | :heavy_check_mark: | _ | _ | DSK, ray-surface intercept, vectorized
+| `DSKZ02_C` | :x: | :heavy_check_mark: | _ | _ | DSK, fetch type 2 model size parameters
 | `DSPHDR_C` | :x: | :x: | _ | _ | Derivative of spherical w.r.t. rectangular
 | `DTPOOL_C` | :x: | :x: | _ | _ | Data for a kernel pool variable
 | `DUCRSS_C` | :x: | :x: | _ | _ | Unit Normalized Cross Product and Derivative
-| `DVCRSS_C` | :x: | :x: | _ | _ | Derivative of Vector cross product
-| `DVDOT_C` | :x: | :x: | _ | _ | Derivative of Vector Dot Product, 3-D
-| `DVHAT_C` | :x: | :x: | _ | _ | Derivative and unit vector "V-hat" of a state
+| `DVCRSS_C` | :x: | :heavy_check_mark: | _ | _ | Derivative of Vector cross product
+| `DVDOT_C` | :x: | :heavy_check_mark: | _ | _ | Derivative of Vector Dot Product, 3-D
+| `DVHAT_C` | :x: | :heavy_check_mark: | _ | _ | Derivative and unit vector "V-hat" of a state
 | `DVNORM_C` | :x: | :x: | _ | _ | Derivative of vector norm
 | `DVPOOL_C` | :x: | :x: | _ | _ | Delete a variable from the kernel pool
 | `DVSEP_C` | :x: | :x: | _ | _ | Time derivative of separation angle
@@ -257,9 +257,9 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `ET2LST_C` | :x: | :x: | _ | _ | ET to Local Solar Time
 | `ET2UTC_C` | :x: | :x: | _ | _ | Ephemeris Time to UTC
 | `ETCAL_C` | :x: | :x: | _ | _ | Convert ET to Calendar format
-| `EUL2M_C` | :x: | :x: | _ | _ | Euler angles to matrix
+| `EUL2M_C` | :x: | :heavy_check_mark: | _ | _ | Euler angles to matrix
 | `EUL2XF_C` | :x: | :x: | _ | _ | Euler angles and derivative to transformation
-| `EVSGP4_C` | :x: | :x: | _ | _ | Evaluate "two-line" element data
+| `EVSGP4_C` | :x: | :heavy_check_mark: | _ | _ | Evaluate "two-line" element data
 | `EXISTS_C` | :x: | :x: | _ | _ | Does the file exist?
 | `EXPOOL_C` | :x: | :x: | _ | _ | Confirm the existence of a pooled kernel variable
 
@@ -270,61 +270,61 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `FAILED_C` | :x: | :x: | _ | _ | Error Status Indicator
 | `FILLD_C` | :x: | :x: | _ | _ | Fill a double precision array
 | `FILLI_C` | :x: | :x: | _ | _ | Fill an integer array
-| `FOVRAY_C` | :x: | :x: | _ | _ | Is ray in FOV at time?
-| `FOVTRG_C` | :x: | :x: | _ | _ | Is target in FOV at time?
+| `FOVRAY_C` | :x: | :heavy_check_mark: | _ | _ | Is ray in FOV at time?
+| `FOVTRG_C` | :x: | :heavy_check_mark: | _ | _ | Is target in FOV at time?
 | `FRAME_C` | :x: | :x: | _ | _ | Build a right handed coordinate frame
 | `FRINFO_C` | :x: | :x: | _ | _ | Frame Information
 | `FRMNAM_C` | :x: | :x: | _ | _ | Frame to Name
 | `FTNCLS_C` | :x: | :x: | _ | _ | Close file designated by Fortran unit
-| `FURNSH_C` | :x: | :x: | _ | _ | Furnish a program with SPICE kernels
+| `FURNSH_C` | :x: | :heavy_check_mark: | _ | _ | Furnish a program with SPICE kernels
 
 ### F
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `GCPOOL_C` | :x: | :x: | _ | _ | Get character data from the kernel pool
-| `GDPOOL_C` | :x: | :x: | _ | _ | Get d.p. values from the kernel pool
-| `GEOREC_C` | :x: | :x: | _ | _ | Geodetic to rectangular coordinates
+| `GCPOOL_C` | :x: | :heavy_check_mark: | _ | _ | Get character data from the kernel pool
+| `GDPOOL_C` | :x: | :heavy_check_mark: | _ | _ | Get d.p. values from the kernel pool
+| `GEOREC_C` | :x: | :heavy_check_mark: | _ | _ | Geodetic to rectangular coordinates
 | `GETCML_C` | :x: | :x: | _ | _ | Get the command line
-| `GETELM_C` | :x: | :x: | _ | _ | Get the components from two-line elements
+| `GETELM_C` | :x: | :heavy_check_mark: | _ | _ | Get the components from two-line elements
 | `GETFAT_C` | :x: | :x: | _ | _ | Get file architecture and type
-| `GETFOV_C` | :x: | :x: | _ | _ | Get instrument FOV parameters
-| `GETFVN_C` | :x: | :x: | _ | _ | Get instrument FOV parameters, by instrument name
+| `GETFOV_C` | :x: | :heavy_check_mark: | _ | _ | Get instrument FOV parameters
+| `GETFVN_C` | :x: | :heavy_check_mark: | _ | _ | Get instrument FOV parameters, by instrument name
 | `GETMSG_C` | :x: | :x: | _ | _ | Get Error Message
 | `GFBAIL_C` | :x: | :x: | _ | _ | GF, interrupt signal indicator
 | `GFCLRH_C` | :x: | :x: | _ | _ | GF, clear interrupt signal handler status
-| `GFDIST_C` | :x: | :x: | _ | _ | GF, distance search
+| `GFDIST_C` | :x: | :heavy_check_mark: | _ | _ | GF, distance search
 | `GFEVNT_C` | :x: | :x: | _ | _ | GF, geometric event finder
 | `GFFOVE_C` | :x: | :x: | _ | _ | GF, is target in FOV?
-| `GFILUM_C` | :x: | :x: | _ | _ | GF, illumination angle search
+| `GFILUM_C` | :x: | :heavy_check_mark: | _ | _ | GF, illumination angle search
 | `GFINTH_C` | :x: | :x: | _ | _ | GF, interrupt signal handler
 | `GFOCCE_C` | :x: | :x: | _ | _ | GF, occultation event
-| `GFOCLT_C` | :x: | :x: | _ | _ | GF, find occultation
-| `GFPA_C` | :x: | :x: | _ | _ | GF, phase angle search
-| `GFPOSC_C` | :x: | :x: | _ | _ | GF, observer-target vector coordinate search
+| `GFOCLT_C` | :x: | :heavy_check_mark: | _ | _ | GF, find occultation
+| `GFPA_C` | :x: | :heavy_check_mark: | _ | _ | GF, phase angle search
+| `GFPOSC_C` | :x: | :heavy_check_mark: | _ | _ | GF, observer-target vector coordinate search
 | `GFREFN_C` | :x: | :x: | _ | _ | GF, default refinement estimator
 | `GFREPF_C` | :x: | :x: | _ | _ | GF, progress report finalization
 | `GFREPI_C` | :x: | :x: | _ | _ | GF, progress report initialization
 | `GFREPU_C` | :x: | :x: | _ | _ | GF, progress report update
-| `GFRFOV_C` | :x: | :x: | _ | _ | GF, is ray in FOV?
-| `GFRR_C` | :x: | :x: | _ | _ | GF, range rate search
-| `GFSEP_C` | :x: | :x: | _ | _ | GF, angular separation search
-| `GFSNTC_C` | :x: | :x: | _ | _ | GF, surface intercept vector coordinate search
+| `GFRFOV_C` | :x: | :heavy_check_mark: | _ | _ | GF, is ray in FOV?
+| `GFRR_C` | :x: | :heavy_check_mark: | _ | _ | GF, range rate search
+| `GFSEP_C` | :x: | :heavy_check_mark: | _ | _ | GF, angular separation search
+| `GFSNTC_C` | :x: | :heavy_check_mark: | _ | _ | GF, surface intercept vector coordinate search
 | `GFSSTP_C` | :x: | :x: | _ | _ | Geometry finder set step size
 | `GFSTEP_C` | :x: | :x: | _ | _ | Geometry finder step size
 | `GFSTOL_C` | :x: | :x: | _ | _ | GF, set a tolerance value for GF
-| `GFSUBC_C` | :x: | :x: | _ | _ | GF, subpoint vector coordinate search
-| `GFTFOV_C` | :x: | :x: | _ | _ | GF, is target in FOV?
+| `GFSUBC_C` | :x: | :heavy_check_mark: | _ | _ | GF, subpoint vector coordinate search
+| `GFTFOV_C` | :x: | :heavy_check_mark: | _ | _ | GF, is target in FOV?
 | `GFUDB_C` | :x: | :x: | _ | _ | GF, user defined boolean
 | `GFUDS_C` | :x: | :x: | _ | _ | GF, user defined scalar
-| `GIPOOL_C` | :x: | :x: | _ | _ | Get integers from the kernel pool
+| `GIPOOL_C` | :x: | :heavy_check_mark: | _ | _ | Get integers from the kernel pool
 | `GNPOOL_C` | :x: | :x: | _ | _ | Get names of kernel pool variables
 
 ### H
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `HALFPI_C` | :x: | :x: | _ | _ | Half the value of pi
+| `HALFPI_C` | :x: | :heavy_check_mark: | _ | _ | Half the value of pi
 | `HRMESP_C` | :x: | :x: | _ | _ | Hermite polynomial interpolation, equal spacing
 | `HRMINT_C` | :x: | :x: | _ | _ | Hermite polynomial interpolation
 | `HX2DP_C` | :x: | :x: | _ | _ | Hexadecimal string to d.p. number
@@ -337,9 +337,9 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `ILLUM_C` | :x: | :x: | _ | _ | Illumination angles
 | `ILLUM_PL02` | :x: | :x: | _ | _ | illumination angles using DSK type 2 plate model
 | `ILLUM_PLID_PL02` | :x: | :x: | _ | _ | illumination angles using type 2 DSK
-| `ILLUMF_C` | :x: | :x: | _ | _ | Illumination angles, general source, return flags
-| `ILLUMG_C` | :x: | :x: | _ | _ | Illumination angles, general source
-| `ILUMIN_C` | :x: | :x: | _ | _ | Illumination angles
+| `ILLUMF_C` | :x: | :heavy_check_mark: | _ | _ | Illumination angles, general source, return flags
+| `ILLUMG_C` | :x: | :heavy_check_mark: | _ | _ | Illumination angles, general source
+| `ILUMIN_C` | :x: | :heavy_check_mark: | _ | _ | Illumination angles
 | `INEDPL_C` | :x: | :x: | _ | _ | Intersection of ellipsoid and plane
 | `INELPL_C` | :x: | :x: | _ | _ | Intersection of ellipse and plane
 | `INRYPL_C` | :x: | :x: | _ | _ | Intersection of ray and plane
@@ -363,11 +363,11 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `J1900_C` | :x: | :x: | _ | _ | Julian Date of 1900.0 JAN 0.5
-| `J1950_C` | :x: | :x: | _ | _ | Julian Date of 1950.0 JAN 1.0
-| `J2000_C` | :x: | :x: | _ | _ | Julian Date of 2000 JAN 1.5
-| `J2100_C` | :x: | :x: | _ | _ | Julian Date of 2100 JAN 1.5
-| `JYEAR_C` | :x: | :x: | _ | _ | Seconds per julian year
+| `J1900_C` | :x: | :heavy_check_mark: | _ | _ | Julian Date of 1900.0 JAN 0.5
+| `J1950_C` | :x: | :heavy_check_mark: | _ | _ | Julian Date of 1950.0 JAN 1.0
+| `J2000_C` | :x: | :heavy_check_mark: | _ | _ | Julian Date of 2000 JAN 1.5
+| `J2100_C` | :x: | :heavy_check_mark: | _ | _ | Julian Date of 2100 JAN 1.5
+| `JYEAR_C` | :x: | :heavy_check_mark: | _ | _ | Seconds per julian year
 
 
 ### K
@@ -387,17 +387,17 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
 | `LASTNB_C` | :x: | :x: | _ | _ | Last non-blank character
-| `LATCYL_C` | :x: | :x: | _ | _ | Latitudinal to cylindrical coordinates
-| `LATREC_C` | :x: | :x: | _ | _ | Latitudinal to rectangular coordinates
-| `LATSPH_C` | :x: | :x: | _ | _ | Latitudinal to spherical coordinates
-| `LATSRF_C` | :x: | :x: | _ | _ | Latitudinal grid to surface points
+| `LATCYL_C` | :x: | :heavy_check_mark: | _ | _ | Latitudinal to cylindrical coordinates
+| `LATREC_C` | :x: | :heavy_check_mark: | _ | _ | Latitudinal to rectangular coordinates
+| `LATSPH_C` | :x: | :heavy_check_mark: | _ | _ | Latitudinal to spherical coordinates
+| `LATSRF_C` | :x: | :heavy_check_mark: | _ | _ | Latitudinal grid to surface points
 | `LCASE_C` | :x: | :x: | _ | _ | Convert to lowercase
 | `LDPOOL_C` | :x: | :x: | _ | _ | Load variables from a kernel file into the pool
 | `LGRESP_C` | :x: | :x: | _ | _ | Lagrange interpolation on equally spaced points
 | `LGRIND_C` | :x: | :x: | _ | _ | Lagrange polynomial interpolation with derivative
 | `LGRINT_C` | :x: | :x: | _ | _ | Lagrange polynomial interpolation
 | `LIMB_PL02` | :x: | :x: | _ | _ | Limb using DSK type 2 plate model
-| `LIMBPT_C` | :x: | :x: | _ | _ | Limb points on an extended object
+| `LIMBPT_C` | :x: | :heavy_check_mark: | _ | _ | Limb points on an extended object
 | `LLGRID_PL02` | :x: | :x: | _ | _ | Lon/lat grid using DSK type 2 plate model
 | `LMPOOL_C` | :x: | :x: | _ | _ | Load variables from memory into the pool
 | `LPARSE_C` | :x: | :x: | _ | _ | Parse items from a list
@@ -421,26 +421,26 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `M2EUL_C` | :x: | :x: | _ | _ | Matrix to Euler angles
-| `M2Q_C` | :x: | :x: | _ | _ | Matrix to quaternion
+| `M2EUL_C` | :x: | :heavy_check_mark: | _ | _ | Matrix to Euler angles
+| `M2Q_C` | :x: | :heavy_check_mark: | _ | _ | Matrix to quaternion
 | `MATCHI_C` | :x: | :x: | _ | _ | Match string against wildcard template
 | `MATCHW_C` | :x: | :x: | _ | _ | Match string against wildcard template
 | `MAXD_C` | :x: | :x: | _ | _ | Maximum of a set of double precision values
 | `MAXI_C` | :x: | :x: | _ | _ | Maximum of a set of integers
-| `MEQU_C` | :x: | :x: | _ | _ | Matrix equal to another, 3x3
+| `MEQU_C` | :x: | :heavy_check_mark: | _ | _ | Matrix equal to another, 3x3
 | `MEQUG_C` | :x: | :x: | _ | _ | Matrix equal to another, general dimension
 | `MIND_C` | :x: | :x: | _ | _ | Minimum of a set of double precision values
 | `MINI_C` | :x: | :x: | _ | _ | minimum of a set of integers
 | `MOVED_C` | :x: | :x: | _ | _ | Move a double precision array to another
-| `MTXM_C` | :x: | :x: | _ | _ | Matrix transpose times matrix, 3x3
+| `MTXM_C` | :x: | :heavy_check_mark: | _ | _ | Matrix transpose times matrix, 3x3
 | `MTXMG_C` | :x: | :x: | _ | _ | Matrix transpose times matrix, general dimension
-| `MTXV_C` | :x: | :x: | _ | _ | Matrix transpose times vector, 3x3
+| `MTXV_C` | :x: | :heavy_check_mark: | _ | _ | Matrix transpose times vector, 3x3
 | `MTXVG_C` | :x: | :x: | _ | _ | Matrix transpose times vector, general dimension
-| `MXM_C` | :x: | :x: | _ | _ | Matrix times matrix, 3x3
+| `MXM_C` | :x: | :heavy_check_mark: | _ | _ | Matrix times matrix, 3x3
 | `MXMG_C` | :x: | :x: | _ | _ | Matrix times matrix, general dimension
-| `MXMT_C` | :x: | :x: | _ | _ | Matrix times matrix transpose, 3x3
+| `MXMT_C` | :x: | :heavy_check_mark: | _ | _ | Matrix times matrix transpose, 3x3
 | `MXMTG_C` | :x: | :x: | _ | _ | Matrix times matrix transpose, general dimension
-| `MXV_C` | :x: | :x: | _ | _ | Matrix times vector, 3x3
+| `MXV_C` | :x: | :heavy_check_mark: | _ | _ | Matrix times vector, 3x3
 | `MXVG_C` | :x: | :x: | _ | _ | Matrix times vector, general dimension
 
 ### N
@@ -463,14 +463,14 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `OCCULT_C` | :x: | :x: | _ | _ | find occultation type at time
+| `OCCULT_C` | :x: | :heavy_check_mark: | _ | _ | find occultation type at time
 | `ORDC_C` | :x: | :x: | _ | _ | The ordinal position of an element in a set
 | `ORDD_C` | :x: | :x: | _ | _ | The ordinal position of an element in a set
 | `ORDERC_C` | :x: | :x: | _ | _ | Order of a character array
 | `ORDERD_C` | :x: | :x: | _ | _ | Order of a double precision array
 | `ORDERI_C` | :x: | :x: | _ | _ | Order of an integer array
 | `ORDI_C` | :x: | :x: | _ | _ | The ordinal position of an element in a set
-| `OSCELT_C` | :x: | :x: | _ | _ | Determine conic elements from state
+| `OSCELT_C` | :x: | :heavy_check_mark: | _ | _ | Determine conic elements from state
 | `OSCLTX_C` | :x: | :x: | _ | _ | Extended osculating elements from state
 
 ### P
@@ -478,17 +478,17 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
 | `PCKCLS_C` | :x: | :x: | _ | _ | PCK, close file
-| `PCKCOV_C` | :x: | :x: | _ | _ | PCK coverage
-| `PCKFRM_C` | :x: | :x: | _ | _ | PCK, get reference frame class ID set
+| `PCKCOV_C` | :x: | :heavy_check_mark: | _ | _ | PCK coverage
+| `PCKFRM_C` | :x: | :heavy_check_mark: | _ | _ | PCK, get reference frame class ID set
 | `PCKLOF_C` | :x: | :x: | _ | _ | PCK, load binary file
 | `PCKOPN_C` | :x: | :x: | _ | _ | PCK, open new file
 | `PCKUOF_C` | :x: | :x: | _ | _ | PCK, unload binary file
 | `PCKW02_C` | :x: | :x: | _ | _ | PCK, write type 2 segment
 | `PCPOOL_C` | :x: | :x: | _ | _ | Put character strings into the kernel pool
 | `PDPOOL_C` | :x: | :x: | _ | _ | Put d.p.'s into the kernel pool
-| `PGRREC_C` | :x: | :x: | _ | _ | Planetographic to rectangular
-| `PHASEQ_C` | :x: | :x: | _ | _ | Phase angle quantity between bodies centers
-| `PI_C` | :x: | :x: | _ | _ | Value of pi
+| `PGRREC_C` | :x: | :heavy_check_mark: | _ | _ | Planetographic to rectangular
+| `PHASEQ_C` | :x: | :heavy_check_mark: | _ | _ | Phase angle quantity between bodies centers
+| `PI_C` | :x: | :heavy_check_mark: | _ | _ | Value of pi
 | `PIPOOL_C` | :x: | :x: | _ | _ | Put integers into the kernel pool
 | `PJELPL_C` | :x: | :x: | _ | _ | Project ellipse onto plane
 | `PL2NVC_C` | :x: | :x: | _ | _ | Plane to normal vector and constant
@@ -508,14 +508,14 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `PRSINT_C` | :x: | :x: | _ | _ | Parse integer with error checking
 | `PSV2PL_C` | :x: | :x: | _ | _ | Point and spanning vectors to plane
 | `PUTCML_C` | :x: | :x: | _ | _ | Get the command line
-| `PXFORM_C` | :x: | :x: | _ | _ | Position Transformation Matrix
-| `PXFRM2_C` | :x: | :x: | _ | _ | Position Transform Matrix, Different Epochs
+| `PXFORM_C` | :x: | :heavy_check_mark: | _ | _ | Position Transformation Matrix
+| `PXFRM2_C` | :x: | :heavy_check_mark: | _ | _ | Position Transform Matrix, Different Epochs
 
 ### Q
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `Q2M_C` | :x: | :x: | _ | _ | Quaternion to matrix
+| `Q2M_C` | :x: | :heavy_check_mark: | _ | _ | Quaternion to matrix
 | `QCKTRC_C` | :x: | :x: | _ | _ | Get Quick Traceback
 | `QDERIV_C` | :x: | :x: | _ | _ | Quadratic derivative
 | `QDQ2AV_C` | :x: | :x: | _ | _ | Quaternion and quaternion derivative to a.v.
@@ -525,17 +525,17 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `RADREC_C` | :x: | :x: | _ | _ | Range, RA and DEC to rectangular coordinates
+| `RADREC_C` | :x: | :heavy_check_mark: | _ | _ | Range, RA and DEC to rectangular coordinates
 | `RAV2XF_C` | :x: | :x: | _ | _ | Rotation and angular velocity to transform
-| `RAXISA_C` | :x: | :x: | _ | _ | Rotation axis of a matrix
+| `RAXISA_C` | :x: | :heavy_check_mark: | _ | _ | Rotation axis of a matrix
 | `RDTEXT_C` | :x: | :x: | _ | _ | Read a line from a text file
-| `RECAZL_C` | :x: | :x: | _ | _ | Rectangular coordinates to AZ/EL
-| `RECCYL_C` | :x: | :x: | _ | _ | Rectangular to cylindrical coordinates
-| `RECGEO_C` | :x: | :x: | _ | _ | Rectangular to geodetic
-| `RECLAT_C` | :x: | :x: | _ | _ | Rectangular to latitudinal coordinates
-| `RECPGR_C` | :x: | :x: | _ | _ | Rectangular to planetographic
-| `RECRAD_C` | :x: | :x: | _ | _ | Rectangular coordinates to RA and DEC
-| `RECSPH_C` | :x: | :x: | _ | _ | Rectangular to spherical coordinates
+| `RECAZL_C` | :x: | :heavy_check_mark: | _ | _ | Rectangular coordinates to AZ/EL
+| `RECCYL_C` | :x: | :heavy_check_mark: | _ | _ | Rectangular to cylindrical coordinates
+| `RECGEO_C` | :x: | :heavy_check_mark: | _ | _ | Rectangular to geodetic
+| `RECLAT_C` | :x: | :heavy_check_mark: | _ | _ | Rectangular to latitudinal coordinates
+| `RECPGR_C` | :x: | :heavy_check_mark: | _ | _ | Rectangular to planetographic
+| `RECRAD_C` | :x: | :heavy_check_mark: | _ | _ | Rectangular coordinates to RA and DEC
+| `RECSPH_C` | :x: | :heavy_check_mark: | _ | _ | Rectangular to spherical coordinates
 | `REMOVC_C` | :x: | :x: | _ | _ | Remove an item from a character set
 | `REMOVD_C` | :x: | :x: | _ | _ | Remove an item from a double precision set
 | `REMOVI_C` | :x: | :x: | _ | _ | Remove an item from an integer set
@@ -552,10 +552,10 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `REPMOT_C` | :x: | :x: | _ | _ | Replace marker with ordinal text
 | `RESET_C` | :x: | :x: | _ | _ | Reset Error Status
 | `RETURN_C` | :x: | :x: | _ | _ | Immediate Return Indicator
-| `ROTATE_C` | :x: | :x: | _ | _ | Generate a rotation matrix
-| `ROTMAT_C` | :x: | :x: | _ | _ | Rotate a matrix
-| `ROTVEC_C` | :x: | :x: | _ | _ | Transform a vector via a rotation
-| `RPD_C` | :x: | :x: | _ | _ | Radians per degree
+| `ROTATE_C` | :x: | :heavy_check_mark: | _ | _ | Generate a rotation matrix
+| `ROTMAT_C` | :x: | :heavy_check_mark: | _ | _ | Rotate a matrix
+| `ROTVEC_C` | :x: | :heavy_check_mark: | _ | _ | Transform a vector via a rotation
+| `RPD_C` | :x: | :heavy_check_mark: | _ | _ | Radians per degree
 | `RQUAD_C` | :x: | :x: | _ | _ | Roots of a quadratic equation
 
 ### S
@@ -564,15 +564,15 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 |---|---|---|---|---|---|
 | `SAELGV_C` | :x: | :x: | _ | _ | Semi-axes of ellipse from generating vectors
 | `SCARD_C` | :x: | :x: | _ | _ | Set the cardinality of a cell
-| `SCDECD_C` | :x: | :x: | _ | _ | Decode spacecraft clock
+| `SCDECD_C` | :x: | :heavy_check_mark: | _ | _ | Decode spacecraft clock
 | `SCE2C_C` | :x: | :x: | _ | _ | ET to continuous SCLK ticks
-| `SCE2S_C` | :x: | :x: | _ | _ | ET to SCLK string
+| `SCE2S_C` | :x: | :heavy_check_mark: | _ | _ | ET to SCLK string
 | `SCE2T_C` | :x: | :x: | _ | _ | ET to SCLK ticks
-| `SCENCD_C` | :x: | :x: | _ | _ | Encode spacecraft clock
+| `SCENCD_C` | :x: | :heavy_check_mark: | _ | _ | Encode spacecraft clock
 | `SCFMT_C` | :x: | :x: | _ | _ | Convert SCLK "ticks" to character clock format
 | `SCPART_C` | :x: | :x: | _ | _ | Spacecraft Clock Partition Information
-| `SCS2E_C` | :x: | :x: | _ | _ | SCLK string to ET
-| `SCT2E_C` | :x: | :x: | _ | _ | SCLK ticks to ET
+| `SCS2E_C` | :x: | :heavy_check_mark: | _ | _ | SCLK string to ET
+| `SCT2E_C` | :x: | :heavy_check_mark: | _ | _ | SCLK ticks to ET
 | `SCTIKS_C` | :x: | :x: | _ | _ | Convert spacecraft clock string to ticks.
 | `SDIFF_C` | :x: | :x: | _ | _ | Symmetric difference of two sets
 | `SET_C` | :x: | :x: | _ | _ | Compare sets
@@ -581,12 +581,12 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `SHELLD_C` | :x: | :x: | _ | _ | Shell sort a double precision array
 | `SHELLI_C` | :x: | :x: | _ | _ | Shell sort an integer array
 | `SIGERR_C` | :x: | :x: | _ | _ | Signal Error Condition
-| `SINCPT_C` | :x: | :x: | _ | _ | Surface intercept
+| `SINCPT_C` | :x: | :heavy_check_mark: | _ | _ | Surface intercept
 | `SIZE_C` | :x: | :x: | _ | _ | Size of a cell
-| `SPD_C` | :x: | :x: | _ | _ | Seconds per day
-| `SPHCYL_C` | :x: | :x: | _ | _ | Spherical to cylindrical coordinates
-| `SPHLAT_C` | :x: | :x: | _ | _ | Spherical to latitudinal coordinates
-| `SPHREC_C` | :x: | :x: | _ | _ | Spherical to rectangular coordinates
+| `SPD_C` | :x: | :heavy_check_mark: | _ | _ | Seconds per day
+| `SPHCYL_C` | :x: | :heavy_check_mark: | _ | _ | Spherical to cylindrical coordinates
+| `SPHLAT_C` | :x: | :heavy_check_mark: | _ | _ | Spherical to latitudinal coordinates
+| `SPHREC_C` | :x: | :heavy_check_mark: | _ | _ | Spherical to rectangular coordinates
 | `SPK14A_C` | :x: | :x: | _ | _ | SPK, add data to a type 14 segment
 | `SPK14B_C` | :x: | :x: | _ | _ | SPK, begin a type 14 segment
 | `SPK14E_C` | :x: | :x: | _ | _ | SPK, end a type 14 segment
@@ -595,23 +595,23 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `SPKAPP_C` | :x: | :x: | _ | _ | S/P Kernel, apparent state
 | `SPKAPS_C` | :x: | :x: | _ | _ | SPK, apparent state
 | `SPKCLS_C` | :x: | :x: | _ | _ | SPK, Close file
-| `SPKCOV_C` | :x: | :x: | _ | _ | SPK coverage
-| `SPKCPO_C` | :x: | :x: | _ | _ | SPK, constant position observer state
-| `SPKCPT_C` | :x: | :x: | _ | _ | SPK, constant position target state
-| `SPKCVO_C` | :x: | :x: | _ | _ | SPK, constant velocity observer state
-| `SPKCVT_C` | :x: | :x: | _ | _ | SPK, constant velocity target state
+| `SPKCOV_C` | :x: | :heavy_check_mark: | _ | _ | SPK coverage
+| `SPKCPO_C` | :x: | :heavy_check_mark: | _ | _ | SPK, constant position observer state
+| `SPKCPT_C` | :x: | :heavy_check_mark: | _ | _ | SPK, constant position target state
+| `SPKCVO_C` | :x: | :heavy_check_mark: | _ | _ | SPK, constant velocity observer state
+| `SPKCVT_C` | :x: | :heavy_check_mark: | _ | _ | SPK, constant velocity target state
 | `SPKEZ_C` | :x: | :x: | _ | _ | S/P Kernel, easy reader
 | `SPKEZP_C` | :x: | :x: | _ | _ | S/P Kernel, easy position
-| `SPKEZR_C` | :x: | :x: | _ | _ | S/P Kernel, easier reader
+| `SPKEZR_C` | :x: | :heavy_check_mark: | _ | _ | S/P Kernel, easier reader
 | `SPKGEO_C` | :x: | :x: | _ | _ | S/P Kernel, geometric state
 | `SPKGPS_C` | :x: | :x: | _ | _ | S/P Kernel, geometric position
 | `SPKLEF_C` | :x: | :x: | _ | _ | S/P Kernel, Load ephemeris file
 | `SPKLTC_C` | :x: | :x: | _ | _ | S/P Kernel, light time corrected state
-| `SPKOBJ_C` | :x: | :x: | _ | _ | SPK objects
+| `SPKOBJ_C` | :x: | :heavy_check_mark: | _ | _ | SPK objects
 | `SPKOPA_C` | :x: | :x: | _ | _ | SPK open for addition
 | `SPKOPN_C` | :x: | :x: | _ | _ | SPK, open new file.
 | `SPKPDS_C` | :x: | :x: | _ | _ | SPK pack descriptor
-| `SPKPOS_C` | :x: | :x: | _ | _ | S/P Kernel, position
+| `SPKPOS_C` | :x: | :heavy_check_mark: | _ | _ | S/P Kernel, position
 | `SPKPVN_C` | :x: | :x: | _ | _ | S/P Kernel, position and velocity in native frame
 | `SPKSFS_C` | :x: | :x: | _ | _ | S/P Kernel, Select file and segment
 | `SPKSSB_C` | :x: | :x: | _ | _ | S/P Kernel, solar system barycenter
@@ -630,22 +630,22 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `SPKW17_C` | :x: | :x: | _ | _ | SPK, write a type 17 segment
 | `SPKW18_C` | :x: | :x: | _ | _ | Write SPK segment, type 18
 | `SPKW20_C` | :x: | :x: | _ | _ | Write SPK segment, type 20
-| `SRFC2S_C` | :x: | :x: | _ | _ | Surface and body ID codes to surface string
-| `SRFCSS_C` | :x: | :x: | _ | _ | Surface ID and body string to surface string
-| `SRFNRM_C` | :x: | :x: | _ | _ | Map surface points to outward normal vectors
-| `SRFREC_C` | :x: | :x: | _ | _ | Surface to rectangular coordinates
-| `SRFS2C_C` | :x: | :x: | _ | _ | Surface and body strings to surface ID code
-| `SRFSCC_C` | :x: | :x: | _ | _ | Surface string and body ID code to surface ID code
+| `SRFC2S_C` | :x: | :heavy_check_mark: | _ | _ | Surface and body ID codes to surface string
+| `SRFCSS_C` | :x: | :heavy_check_mark: | _ | _ | Surface ID and body string to surface string
+| `SRFNRM_C` | :x: | :heavy_check_mark: | _ | _ | Map surface points to outward normal vectors
+| `SRFREC_C` | :x: | :heavy_check_mark: | _ | _ | Surface to rectangular coordinates
+| `SRFS2C_C` | :x: | :heavy_check_mark: | _ | _ | Surface and body strings to surface ID code
+| `SRFSCC_C` | :x: | :heavy_check_mark: | _ | _ | Surface string and body ID code to surface ID code
 | `SRFXPT_C` | :x: | :x: | _ | _ | Surface intercept point
 | `SSIZE_C` | :x: | :x: | _ | _ | Set the size of a cell
 | `STELAB_C` | :x: | :x: | _ | _ | Stellar Aberration
 | `STLABX_C` | :x: | :x: | _ | _ | Stellar aberration, transmission case
 | `STPOOL_C` | :x: | :x: | _ | _ | String from pool
-| `STR2ET_C` | :x: | :x: | _ | _ | String to ET
-| `SUBPNT_C` | :x: | :x: | _ | _ | Sub-observer point
+| `STR2ET_C` | :x: | :heavy_check_mark: | _ | _ | String to ET
+| `SUBPNT_C` | :x: | :heavy_check_mark: | _ | _ | Sub-observer point
 | `SUBPT_C` | :x: | :x: | _ | _ | Sub-observer point
 | `SUBPT_PL02` | :x: | :x: | _ | _ | Sub-observer point using DSK type 2 plate model
-| `SUBSLR_C` | :x: | :x: | _ | _ | Sub-solar point
+| `SUBSLR_C` | :x: | :heavy_check_mark: | _ | _ | Sub-solar point
 | `SUBSOL_C` | :x: | :x: | _ | _ | Sub-solar point
 | `SUBSOL_PL02` | :x: | :x: | _ | _ | Sub-solar point using DSK type 2 plate model
 | `SUMAD_C` | :x: | :x: | _ | _ | Sum of a double precision array
@@ -654,18 +654,18 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `SURFPT_C` | :x: | :x: | _ | _ | Surface point on an ellipsoid
 | `SURFPV_C` | :x: | :x: | _ | _ | Surface point and velocity
 | `SWPOOL_C` | :x: | :x: | _ | _ | Set watch on a pool variable
-| `SXFORM_C` | :x: | :x: | _ | _ | State Transformation Matrix
+| `SXFORM_C` | :x: | :heavy_check_mark: | _ | _ | State Transformation Matrix
 | `SZPOOL_C` | :x: | :x: | _ | _ | Get size limitations of the kernel pool
 
 ### T
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `TANGPT_C` | :x: | :x: | _ | _ | Ray-ellipsoid tangent point
+| `TANGPT_C` | :x: | :heavy_check_mark: | _ | _ | Ray-ellipsoid tangent point
 | `TERM_PL02` | :x: | :x: | _ | _ | Terminator using DSK type 2 plate model
-| `TERMPT_C` | :x: | :x: | _ | _ | Terminator points on an extended object
+| `TERMPT_C` | :x: | :heavy_check_mark: | _ | _ | Terminator points on an extended object
 | `TIMDEF_C` | :x: | :x: | _ | _ | Time Software Defaults
-| `TIMOUT_C` | :x: | :x: | _ | _ | Time Output
+| `TIMOUT_C` | :x: | :heavy_check_mark: | _ | _ | Time Output
 | `TIPBOD_C` | :x: | :x: | _ | _ | Transformation, inertial position to bodyfixed
 | `TISBOD_C` | :x: | :x: | _ | _ | Transformation, inertial state to bodyfixed
 | `TKFRAM_C` | :x: | :x: | _ | _ | TK frame, find position rotation
@@ -673,16 +673,16 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `TPARCH_C` | :x: | :x: | _ | _ | Parse check---check format of strings
 | `TPARSE_C` | :x: | :x: | _ | _ | Parse a UTC time string
 | `TPICTR_C` | :x: | :x: | _ | _ | Create a Time Format Picture
-| `TRACE_C` | :x: | :x: | _ | _ | Trace of a 3x3 matrix
+| `TRACE_C` | :x: | :heavy_check_mark: | _ | _ | Trace of a 3x3 matrix
 | `TRCDEP_C` | :x: | :x: | _ | _ | Traceback depth
 | `TRCNAM_C` | :x: | :x: | _ | _ | Get module name from traceback
 | `TRCOFF_C` | :x: | :x: | _ | _ | Turn tracing off
-| `TRGSEP_C` | :x: | :x: | _ | _ | Separation quantity from observer
+| `TRGSEP_C` | :x: | :heavy_check_mark: | _ | _ | Separation quantity from observer
 | `TSETYR_C` | :x: | :x: | _ | _ | Time --- set year expansion boundaries
-| `TWOPI_C` | :x: | :x: | _ | _ | Twice the value of pi
-| `TWOVEC_C` | :x: | :x: | _ | _ | Two vectors defining an orthonormal frame
+| `TWOPI_C` | :x: | :heavy_check_mark: | _ | _ | Twice the value of pi
+| `TWOVEC_C` | :x: | :heavy_check_mark: | _ | _ | Two vectors defining an orthonormal frame
 | `TWOVXF_C` | :x: | :x: | _ | _ | Two states defining a frame transformation
-| `TYEAR_C` | :x: | :x: | _ | _ | Seconds per tropical year
+| `TYEAR_C` | :x: | :heavy_check_mark: | _ | _ | Seconds per tropical year
 
 ### U
 
@@ -695,8 +695,8 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `UDF_C` | :x: | :x: | _ | _ | GF, dummy function
 | `UNION_C` | :x: | :x: | _ | _ | Union of two sets
 | `UNITIM_C` | :x: | :x: | _ | _ | Uniform time scale transformation
-| `UNLOAD_C` | :x: | :x: | _ | _ | Unload a kernel
-| `UNORM_C` | :x: | :x: | _ | _ | Unit vector and norm, 3 dimensional
+| `UNLOAD_C` | :x: | :heavy_check_mark: | _ | _ | Unload a kernel
+| `UNORM_C` | :x: | :heavy_check_mark: | _ | _ | Unit vector and norm, 3 dimensional
 | `UNORMG_C` | :x: | :x: | _ | _ | Unit vector and norm, general dimension
 | `UTC2ET_C` | :x: | :x: | _ | _ | UTC to Ephemeris Time
 
@@ -704,44 +704,44 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `VADD_C` | :x: | :x: | _ | _ | Vector addition, 3 dimensional
+| `VADD_C` | :x: | :heavy_check_mark: | _ | _ | Vector addition, 3 dimensional
 | `VADDG_C` | :x: | :x: | _ | _ | Vector addition, general dimension
 | `VALID_C` | :x: | :x: | _ | _ | Validate a set
-| `VCRSS_C` | :x: | :x: | _ | _ | Vector cross product, 3 dimensions
-| `VDIST_C` | :x: | :x: | _ | _ | Vector distance
+| `VCRSS_C` | :x: | :heavy_check_mark: | _ | _ | Vector cross product, 3 dimensions
+| `VDIST_C` | :x: | :heavy_check_mark: | _ | _ | Vector distance
 | `VDISTG_C` | :x: | :x: | _ | _ | Vector distance, general dimension
 | `VDOT_C` | :x: | :x: | _ | _ | Vector dot product, 3 dimensions
 | `VDOTG_C` | :x: | :x: | _ | _ | Vector dot product, general dimension
-| `VEQU_C` | :x: | :x: | _ | _ | Vector equality, 3 dimensions
+| `VEQU_C` | :x: | :heavy_check_mark: | _ | _ | Vector equality, 3 dimensions
 | `VEQUG_C` | :x: | :x: | _ | _ | Vector equality, general dimension
 | `VHAT_C` | :x: | :x: | _ | _ | "V-Hat", unit vector along V, 3 dimensions
 | `VHATG_C` | :x: | :x: | _ | _ | "V-Hat", unit vector along V, general dimension
-| `VLCOM3_C` | :x: | :x: | _ | _ | Vector linear combination, 3 dimensions
-| `VLCOM_C` | :x: | :x: | _ | _ | Vector linear combination, 3 dimensions
+| `VLCOM3_C` | :x: | :heavy_check_mark: | _ | _ | Vector linear combination, 3 dimensions
+| `VLCOM_C` | :x: | :heavy_check_mark: | _ | _ | Vector linear combination, 3 dimensions
 | `VLCOMG_C` | :x: | :x: | _ | _ | Vector linear combination, general dimension
 | `VMINUG_C` | :x: | :x: | _ | _ | Negate vector, "-v", general dimension
-| `VMINUS_C` | :x: | :x: | _ | _ | Negate vector, "-v", 3 dimensions
-| `VNORM_C` | :x: | :x: | _ | _ | Vector norm, 3 dimensions
+| `VMINUS_C` | :x: | :heavy_check_mark: | _ | _ | Negate vector, "-v", 3 dimensions
+| `VNORM_C` | :x: | :heavy_check_mark: | _ | _ | Vector norm, 3 dimensions
 | `VNORMG_C` | :x: | :x: | _ | _ | Vector norm, general dimension
-| `VPACK_C` | :x: | :x: | _ | _ | Pack three scalar components into a vector
-| `VPERP_C` | :x: | :x: | _ | _ | Perpendicular component of a 3-vector
+| `VPACK_C` | :x: | :heavy_check_mark: | _ | _ | Pack three scalar components into a vector
+| `VPERP_C` | :x: | :heavy_check_mark: | _ | _ | Perpendicular component of a 3-vector
 | `VPRJP_C` | :x: | :x: | _ | _ | Vector projection onto plane
 | `VPRJPI_C` | :x: | :x: | _ | _ | Vector projection onto plane, inverted
-| `VPROJ_C` | :x: | :x: | _ | _ | Vector projection, 3 dimensions
+| `VPROJ_C` | :x: | :heavy_check_mark: | _ | _ | Vector projection, 3 dimensions
 | `VPROJG_C` | :x: | :x: | _ | _ | Vector projection, general dimension
-| `VREL_C` | :x: | :x: | _ | _ | Vector relative difference, 3 dimensions
+| `VREL_C` | :x: | :heavy_check_mark: | _ | _ | Vector relative difference, 3 dimensions
 | `VRELG_C` | :x: | :x: | _ | _ | Vector relative difference, general dimension
-| `VROTV_C` | :x: | :x: | _ | _ | Vector rotation about an axis
-| `VSCL_C` | :x: | :x: | _ | _ | Vector scaling, 3 dimensions
+| `VROTV_C` | :x: | :heavy_check_mark: | _ | _ | Vector rotation about an axis
+| `VSCL_C` | :x: | :heavy_check_mark: | _ | _ | Vector scaling, 3 dimensions
 | `VSCLG_C` | :x: | :x: | _ | _ | Vector scaling, general dimension
-| `VSEP_C` | :x: | :x: | _ | _ | Angular separation of vectors, 3 dimensions
+| `VSEP_C` | :x: | :heavy_check_mark: | _ | _ | Angular separation of vectors, 3 dimensions
 | `VSEPG_C` | :x: | :x: | _ | _ | Angular separation of vectors, general dimension
-| `VSUB_C` | :x: | :x: | _ | _ | Vector subtraction, 3 dimensions
+| `VSUB_C` | :x: | :heavy_check_mark: | _ | _ | Vector subtraction, 3 dimensions
 | `VSUBG_C` | :x: | :x: | _ | _ | Vector subtraction, general dimension
-| `VTMV_C` | :x: | :x: | _ | _ | Vector transpose times matrix times vector, 3 dim
+| `VTMV_C` | :x: | :heavy_check_mark: | _ | _ | Vector transpose times matrix times vector, 3 dim
 | `VTMVG_C` | :x: | :x: | _ | _ | Vector transpose times matrix times vector
-| `VUPACK_C` | :x: | :x: | _ | _ | Unpack three scalar components from a vector
-| `VZERO_C` | :x: | :x: | _ | _ | Is a vector the zero vector?
+| `VUPACK_C` | :x: | :heavy_check_mark: | _ | _ | Unpack three scalar components from a vector
+| `VZERO_C` | :x: | :heavy_check_mark: | _ | _ | Is a vector the zero vector?
 | `VZEROG_C` | :x: | :x: | _ | _ | Is a vector the zero vector? -- general dim.
 
 ### W
@@ -772,8 +772,8 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 |---|---|---|---|---|---|
 | `XF2EUL_C` | :x: | :x: | _ | _ | State transformation to Euler angles
 | `XF2RAV_C` | :x: | :x: | _ | _ | Transform to rotation and angular velocity
-| `XFMSTA_C` | :x: | :x: | _ | _ | Transform state between coordinate systems
+| `XFMSTA_C` | :x: | :heavy_check_mark: | _ | _ | Transform state between coordinate systems
 | `XPOSE6_C` | :x: | :x: | _ | _ | Transpose a matrix, 6x6
-| `XPOSE_C` | :x: | :x: | _ | _ | Transpose a matrix, 3x3
+| `XPOSE_C` | :x: | :heavy_check_mark: | _ | _ | Transpose a matrix, 3x3
 | `XPOSEG_C` | :x: | :x: | _ | _ | Transpose a matrix, general
 
