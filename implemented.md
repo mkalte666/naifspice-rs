@@ -247,15 +247,15 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `ELEMI_C` | :x: | :x: | _ | _ | Element of an integer set
 | `EQNCPV_C` | :x: | :x: | _ | _ | Equinoctial Elements to position and velocity
 | `EQSTR_C` | :x: | :x: | _ | _ | Equivalent strings
-| `ERRACT_C` | :x: | :x: | _ | _ | Get/Set Default Error Action
-| `ERRCH_C` | :x: | :x: | _ | _ | Insert String into Error Message Text
-| `ERRDEV_C` | :x: | :x: | _ | _ | Get/Set Error Output Device Name
-| `ERRDP_C` | :x: | :x: | _ | _ | Insert D.P. Number into Error Message Text
-| `ERRINT_C` | :x: | :x: | _ | _ | Insert Integer into Error Message Text
-| `ERRPRT_C` | :x: | :x: | _ | _ | Get/Set Error Output Items
+| `ERRACT_C` | :heavy_minus_sign: | :x: | _ | Used for rust-style error-handling. Thus not exposed. Internally its handled int `Spice::setup_error_handling` | Get/Set Default Error Action
+| `ERRCH_C` | :heavy_minus_sign: | :x: | _ | Won't be implemented for now, as rust has its own error handling. | Insert String into Error Message Text
+| `ERRDEV_C` | :heavy_minus_sign: | :x: | _ | Does not make much sense with internal error handling. Automatic printing of messages can be turned on and off with `Spice::disable_error_texts` and `Spice::enable_error_texts` however. | Get/Set Error Output Device Name
+| `ERRDP_C` | :heavy_minus_sign: | :x: | _ | Won't be implemented for now, as rust has its own error handling. | Insert D.P. Number into Error Message Text
+| `ERRINT_C` | :heavy_minus_sign: | :x: | _ | Won't be implemented for now, as rust has its own error handling. | Insert Integer into Error Message Text
+| `ERRPRT_C` | :heavy_minus_sign: | :x: | _ | Won't be implemented for now, as rust has its own error handling. | Get/Set Error Output Items
 | `ESRCHC_C` | :x: | :x: | _ | _ | Equivalence search, character
 | `ET2LST_C` | :x: | :x: | _ | _ | ET to Local Solar Time
-| `ET2UTC_C` | :x: | :x: | _ | _ | Ephemeris Time to UTC
+| `ET2UTC_C` | :heavy_check_mark: | :x: | `Spice::et2utc` | _ | Ephemeris Time to UTC
 | `ETCAL_C` | :x: | :x: | _ | _ | Convert ET to Calendar format
 | `EUL2M_C` | :x: | :heavy_check_mark: | _ | _ | Euler angles to matrix
 | `EUL2XF_C` | :x: | :x: | _ | _ | Euler angles and derivative to transformation
@@ -267,7 +267,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `FAILED_C` | :x: | :x: | _ | _ | Error Status Indicator
+| `FAILED_C` | :heavy_minus_sign: | :x: | _ | Used for rust-style error-handling. Thus not exposed. Internally its handled int `Spice::check_for_error` | Error Status Indicator
 | `FILLD_C` | :x: | :x: | _ | _ | Fill a double precision array
 | `FILLI_C` | :x: | :x: | _ | _ | Fill an integer array
 | `FOVRAY_C` | :x: | :heavy_check_mark: | _ | _ | Is ray in FOV at time?
@@ -276,7 +276,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `FRINFO_C` | :x: | :x: | _ | _ | Frame Information
 | `FRMNAM_C` | :x: | :x: | _ | _ | Frame to Name
 | `FTNCLS_C` | :x: | :x: | _ | _ | Close file designated by Fortran unit
-| `FURNSH_C` | :x: | :heavy_check_mark: | _ | _ | Furnish a program with SPICE kernels
+| `FURNSH_C` | :heavy_check_mark: | :heavy_check_mark: | `Spice::furnsh` | _ | Furnish a program with SPICE kernels
 
 ### F
 
@@ -290,7 +290,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `GETFAT_C` | :x: | :x: | _ | _ | Get file architecture and type
 | `GETFOV_C` | :x: | :heavy_check_mark: | _ | _ | Get instrument FOV parameters
 | `GETFVN_C` | :x: | :heavy_check_mark: | _ | _ | Get instrument FOV parameters, by instrument name
-| `GETMSG_C` | :x: | :x: | _ | _ | Get Error Message
+| `GETMSG_C` | :heavy_minus_sign: | :x: | _ | Used for rust-style error-handling. Thus not exposed. Internally its handled int `Spice::check_for_error` | Get Error Message
 | `GFBAIL_C` | :x: | :x: | _ | _ | GF, interrupt signal indicator
 | `GFCLRH_C` | :x: | :x: | _ | _ | GF, clear interrupt signal handler status
 | `GFDIST_C` | :x: | :heavy_check_mark: | _ | _ | GF, distance search
@@ -516,7 +516,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
 | `Q2M_C` | :x: | :heavy_check_mark: | _ | _ | Quaternion to matrix
-| `QCKTRC_C` | :x: | :x: | _ | _ | Get Quick Traceback
+| `QCKTRC_C` | :heavy_minus_sign: | :x: | _ | Used for rust-style error-handling. Thus not exposed. Internally its handled int `Spice::check_for_error` | Get Quick Traceback
 | `QDERIV_C` | :x: | :x: | _ | _ | Quadratic derivative
 | `QDQ2AV_C` | :x: | :x: | _ | _ | Quaternion and quaternion derivative to a.v.
 | `QXQ_C` | :x: | :x: | _ | _ | Quaternion times quaternion
@@ -550,7 +550,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `REPMI_C` | :x: | :x: | _ | _ | Replace marker with integer
 | `REPML_C` | :x: | :x: | _ | _ | Replace marker with logical value text
 | `REPMOT_C` | :x: | :x: | _ | _ | Replace marker with ordinal text
-| `RESET_C` | :x: | :x: | _ | _ | Reset Error Status
+| `RESET_C` | :heay_minus_sign: | :x: | _ | Used for rust-style error-handling. Thus not exposed. Internally its handled in `Spice::check_for_error` | Reset Error Status
 | `RETURN_C` | :x: | :x: | _ | _ | Immediate Return Indicator
 | `ROTATE_C` | :x: | :heavy_check_mark: | _ | _ | Generate a rotation matrix
 | `ROTMAT_C` | :x: | :heavy_check_mark: | _ | _ | Rotate a matrix
@@ -576,12 +576,11 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `SCTIKS_C` | :x: | :x: | _ | _ | Convert spacecraft clock string to ticks.
 | `SDIFF_C` | :x: | :x: | _ | _ | Symmetric difference of two sets
 | `SET_C` | :x: | :x: | _ | _ | Compare sets
-| `SETMSG_C` | :x: | :x: | _ | _ | Set Long Error Message
+| `SETMSG_C` | :heavy_minus_sign: | :x: | _ | Won't be implemented for now, as rust has its own error handling. | Set Long Error Message
 | `SHELLC_C` | :x: | :x: | _ | _ | Shell sort a character array
 | `SHELLD_C` | :x: | :x: | _ | _ | Shell sort a double precision array
 | `SHELLI_C` | :x: | :x: | _ | _ | Shell sort an integer array
-| `SIGERR_C` | :x: | :x: | _ | _ | Signal Error Condition
-| `SINCPT_C` | :x: | :heavy_check_mark: | _ | _ | Surface intercept
+| `SIGERR_C` | :heavy_minus_sign: | :x: | _ | Won't be implemented for now, as rust has its own error handling. | Signal Error Condition
 | `SIZE_C` | :x: | :x: | _ | _ | Size of a cell
 | `SPD_C` | :x: | :heavy_check_mark: | _ | _ | Seconds per day
 | `SPHCYL_C` | :x: | :heavy_check_mark: | _ | _ | Spherical to cylindrical coordinates
@@ -641,7 +640,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `STELAB_C` | :x: | :x: | _ | _ | Stellar Aberration
 | `STLABX_C` | :x: | :x: | _ | _ | Stellar aberration, transmission case
 | `STPOOL_C` | :x: | :x: | _ | _ | String from pool
-| `STR2ET_C` | :x: | :heavy_check_mark: | _ | _ | String to ET
+| `STR2ET_C` | :heavy_check_mark: | :heavy_check_mark: | `Spice::str2et` | _ | String to ET
 | `SUBPNT_C` | :x: | :heavy_check_mark: | _ | _ | Sub-observer point
 | `SUBPT_C` | :x: | :x: | _ | _ | Sub-observer point
 | `SUBPT_PL02` | :x: | :x: | _ | _ | Sub-observer point using DSK type 2 plate model
@@ -665,7 +664,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `TERM_PL02` | :x: | :x: | _ | _ | Terminator using DSK type 2 plate model
 | `TERMPT_C` | :x: | :heavy_check_mark: | _ | _ | Terminator points on an extended object
 | `TIMDEF_C` | :x: | :x: | _ | _ | Time Software Defaults
-| `TIMOUT_C` | :x: | :heavy_check_mark: | _ | _ | Time Output
+| `TIMOUT_C` | :heavy_check_mark: | :heavy_check_mark: | `Spice::timout` | _ | Time Output
 | `TIPBOD_C` | :x: | :x: | _ | _ | Transformation, inertial position to bodyfixed
 | `TISBOD_C` | :x: | :x: | _ | _ | Transformation, inertial state to bodyfixed
 | `TKFRAM_C` | :x: | :x: | _ | _ | TK frame, find position rotation
@@ -695,7 +694,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `UDF_C` | :x: | :x: | _ | _ | GF, dummy function
 | `UNION_C` | :x: | :x: | _ | _ | Union of two sets
 | `UNITIM_C` | :x: | :x: | _ | _ | Uniform time scale transformation
-| `UNLOAD_C` | :x: | :heavy_check_mark: | _ | _ | Unload a kernel
+| `UNLOAD_C` | :heavy_check_mark: | :heavy_check_mark: | _ | `Spice::unload` | Unload a kernel
 | `UNORM_C` | :x: | :heavy_check_mark: | _ | _ | Unit vector and norm, 3 dimensional
 | `UNORMG_C` | :x: | :x: | _ | _ | Unit vector and norm, general dimension
 | `UTC2ET_C` | :x: | :x: | _ | _ | UTC to Ephemeris Time

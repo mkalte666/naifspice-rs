@@ -8,7 +8,7 @@ impl Spice {
     /// Load one or more SPICE kernels into a program.
     ///
     /// wraps furnsh_c
-    /// https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/furnsh_c.html
+    /// <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/furnsh_c.html>
     pub fn furnsh(&self, file: &str) -> SpiceResult<()> {
         with_string_ref(file, |file| {
             unsafe {
@@ -22,7 +22,7 @@ impl Spice {
     /// Unload a SPICE kernel.
     ///
     /// wraps unload_c
-    /// https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/unload_c.html
+    /// <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/unload_c.html>
     pub fn unload(&self, file: &str) -> SpiceResult<()> {
         with_string_ref(file, |file| {
             unsafe {

@@ -29,7 +29,7 @@ impl Spice {
     /// epoch corresponding to the input epoch.
     ///
     /// wraps str2et_c
-    /// https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/str2et_c.html
+    /// <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/str2et_c.html>
     pub fn str2et(&self, s: &str) -> SpiceResult<SpiceEt> {
         with_string_ref(s, |s| {
             let mut f: f64 = 0.0;
@@ -57,7 +57,7 @@ impl Spice {
     /// specifications of a user's format picture.
     ///
     /// wraps timout_c
-    /// https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/timout_c.html
+    /// <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/timout_c.html>
     pub fn timout(&self, et: SpiceEt, pictur: &str) -> SpiceResult<String> {
         with_string_ref(pictur, |pictur| {
             let mut bytes = null_vec(128);
@@ -76,7 +76,7 @@ impl Spice {
     /// Check the original documentation for info on the format string
     ///
     /// wraps et2utc_c
-    /// https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/et2utc_c.html
+    /// <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/et2utc_c.html>
     pub fn et2utc(&self, et: SpiceEt, format: &str, prec: i32) -> SpiceResult<String> {
         with_string_ref(format, |format| {
             let mut bytes = null_vec(128);
