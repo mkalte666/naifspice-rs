@@ -1,8 +1,8 @@
 # Implementaion overview 
 
-This list is directly pulled from the spice documentation: https://naif.jpl.nasa.gov/pub/naif/toolkit`_`docs/C/cspice/
+This list is directly pulled from the spice documentation: https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/
 
-"mostused" means that api is listed here: https://naif.jpl.nasa.gov/pub/naif/toolkit`_`docs/C/info/mostused.html
+"mostused" means that api is listed here: https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/info/mostused.html
 
 ### A
 
