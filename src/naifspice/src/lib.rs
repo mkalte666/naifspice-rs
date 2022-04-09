@@ -22,5 +22,7 @@ mod test_tools;
 
 pub mod error;
 pub mod spice;
+pub mod cell;
 
 pub use spice::*;
+pub use cell::*;
