@@ -18,18 +18,12 @@
 //! The second option becomes especially problematic if `Spice` is wrapped inside an arc<mutex>.
 //! Then the cells could not outlive the lock.
 //!
-//! In theory there is a better option - spice cells are essentially vectors of data. One could, for
-//! every data access into the api, take vecs and wrap the original c-struct around them. That will
-//! fall apart as soon as spice windows are used. They encode additional info in the first bytes of the vectors.
-//!
-//! Then there is the fourth alternative, that is: implement basic cell functions manually (append etc)
-//! over the original c struct. This needs a lot of care to follow the original implementation.
-//! This
+//! Then there is the third alternative, that is: implement basic cell functions manually (append etc)
+//! over the original c struct, using safe rust. This essentially ends up just as using vecs, however
+//! there are 6 extra elements used by the original fortran api.
 
-use naifspice_sys::SpiceCell as SysCell;
+pub use naifspice_sys::SpiceCell as SysCell;
 
-pub struct SpiceCellDouble {
-    cell: SysCell,
-    data: Vec<double>,
+pub struct SpiceCellDouble
+{
 }
-
