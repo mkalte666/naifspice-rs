@@ -21,3 +21,10 @@ macro_rules! test_file {
         std::fs::copy(orig_name, $filename).unwrap();
     };
 }
+
+pub fn test_compare_some<T: std::cmp::PartialEq>(to_test: Option<T>, val: T) -> bool {
+    match to_test {
+        Some(t) => val == t,
+        None => false,
+    }
+}

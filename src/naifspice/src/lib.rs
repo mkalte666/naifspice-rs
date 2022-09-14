@@ -20,9 +20,9 @@ mod string_tools;
 #[macro_use]
 mod test_tools;
 
+pub mod cell;
 pub mod error;
 pub mod spice;
-pub mod cell;
 
-pub use spice::*;
 pub use cell::*;
+pub use spice::*;
