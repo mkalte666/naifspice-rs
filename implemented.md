@@ -8,9 +8,9 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `APPNDC_C` | :x: | :x: | _ | _ | Append an item to a character cell
-| `APPNDD_C` | :x: | :x: | _ | _ | Append an item to a double precision cell
-| `APPNDI_C` | :x: | :x: | _ | _ | Append an item to an integer cell
+| `APPNDC_C` | :heavy_check_mark: | :x: | SpiceCellChar::push | _ | Append an item to a character cell
+| `APPNDD_C` | :heavy_check_mark: | :x: | SpiceCellDouble::push | _ | Append an item to a double precision cell
+| `APPNDI_C` | :heavy_check_mark: | :x: | SpiceCellInt::push | _ | Append an item to an integer cell
 | `AXISAR_C` | :x: | :heavy_check_mark: | _ | _ | Axis and angle to rotation
 | `AZLCPO_C` | :x: | :heavy_check_mark: | _ | _ | AZ/EL, constant position observer state
 | `AZLREC_C` | :x: | :heavy_check_mark: | _ | _ | AZ/EL to rectangular coordinates
