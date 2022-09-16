@@ -44,7 +44,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
-| `CARD_C` | :x: | :x: | _ | _ | Cardinality of a cell
+| `CARD_C` | :heavy_check_mark: | :x: | SpiceCell::length | _ | Cardinality of a cell
 | `CCIFRM_C` | :x: | :x: | _ | _ | Class and class ID to associated frame
 | `CGV2EL_C` | :x: | :x: | _ | _ | Center and generating vectors to ellipse
 | `CHBDER_C` | :x: | :x: | _ | _ | Derivatives of a Chebyshev expansion
@@ -82,7 +82,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `CNMFRM_C` | :x: | :heavy_check_mark: | _ | _ | Center name to associated frame
 | `CONICS_C` | :x: | :heavy_check_mark: | _ | _ | Determine state from conic elements
 | `CONVRT_C` | :x: | :x: | _ | _ | Convert Units
-| `COPY_C` | :x: | :x: | _ | _ | Copy a SPICE cell
+| `COPY_C` | :heavy_minus_sign: | :x: | _ | Handled via derive(clone) | Copy a SPICE cell
 | `CPOS_C` | :x: | :x: | _ | _ | Character position
 | `CPOSR_C` | :x: | :x: | _ | _ | Character position, reverse
 | `CVPOOL_C` | :x: | :x: | _ | _ | Check variable in the pool for update
@@ -563,7 +563,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | SPICE API | Implemented | mostused | Rust API | Implementation Notes | Short Docstring |
 |---|---|---|---|---|---|
 | `SAELGV_C` | :x: | :x: | _ | _ | Semi-axes of ellipse from generating vectors
-| `SCARD_C` | :x: | :x: | _ | _ | Set the cardinality of a cell
+| `SCARD_C` | :heavy_minus_sign: | :x: | _ | Not needed because cells are re-implemented using vectors | Set the cardinality of a cell
 | `SCDECD_C` | :x: | :heavy_check_mark: | _ | _ | Decode spacecraft clock
 | `SCE2C_C` | :x: | :x: | _ | _ | ET to continuous SCLK ticks
 | `SCE2S_C` | :x: | :heavy_check_mark: | _ | _ | ET to SCLK string
@@ -581,7 +581,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `SHELLD_C` | :x: | :x: | _ | _ | Shell sort a double precision array
 | `SHELLI_C` | :x: | :x: | _ | _ | Shell sort an integer array
 | `SIGERR_C` | :heavy_minus_sign: | :x: | _ | Won't be implemented for now, as rust has its own error handling. | Signal Error Condition
-| `SIZE_C` | :x: | :x: | _ | _ | Size of a cell
+| `SIZE_C` | :heavy_minus_sign: | :x: | _ | Not required as cells are re-implemented with vectors | Size of a cell
 | `SPD_C` | :x: | :heavy_check_mark: | _ | _ | Seconds per day
 | `SPHCYL_C` | :x: | :heavy_check_mark: | _ | _ | Spherical to cylindrical coordinates
 | `SPHLAT_C` | :x: | :heavy_check_mark: | _ | _ | Spherical to latitudinal coordinates
@@ -636,7 +636,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `SRFS2C_C` | :x: | :heavy_check_mark: | _ | _ | Surface and body strings to surface ID code
 | `SRFSCC_C` | :x: | :heavy_check_mark: | _ | _ | Surface string and body ID code to surface ID code
 | `SRFXPT_C` | :x: | :x: | _ | _ | Surface intercept point
-| `SSIZE_C` | :x: | :x: | _ | _ | Set the size of a cell
+| `SSIZE_C` | :heavy_minus_sign: | :x: | _ | Not required as cells are re-implemented using vectors | Set the size of a cell
 | `STELAB_C` | :x: | :x: | _ | _ | Stellar Aberration
 | `STLABX_C` | :x: | :x: | _ | _ | Stellar aberration, transmission case
 | `STPOOL_C` | :x: | :x: | _ | _ | String from pool
