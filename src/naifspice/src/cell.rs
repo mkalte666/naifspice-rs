@@ -5,8 +5,16 @@
 pub use crate::sys::SpiceCell as SysCell;
 use crate::sys::*;
 use std::ffi::c_void;
+use std::ffi::{CStr, CString};
+use std::string::FromUtf8Error;
 
 static SPICE_CELL_CTRLSZ: usize = naifspice_sys::SPICE_CELL_CTRLSZ as usize;
+
+#[derive(Ord, PartialOrd, Eq, PartialEq, Debug)]
+enum SpiceCellConversionError {
+    MalformedString,
+    LengthToShort,
+}
 
 trait SpiceCell {
     type Item;
@@ -39,7 +47,7 @@ trait SpiceCell {
 
     unsafe fn as_spice_cell_mut(&mut self) -> SysCell;
 
-    unsafe fn with_sys_cell<F, R>(&mut self, cb: F) -> R
+    unsafe fn with_sys_cell<F, R>(&mut self, cb: F) -> Result<R, SpiceCellConversionError>
     where
         F: Fn(*mut SysCell) -> R,
     {
@@ -52,7 +60,7 @@ trait SpiceCell {
             self.raw_vec_mut().set_len(cell.card as usize);
         }
 
-        res
+        Ok(res)
     }
 }
 
@@ -180,8 +188,172 @@ impl SpiceCell for SpiceCellInt {
     }
 }
 
+/**
+ * Char cells are different from the rest, as they are two dimensional.
+ * This implementation below is a bit naive, but it should get the job done for everything not super huge
+*/
 pub struct SpiceCellChar {
     vec: Vec<String>,
+    length: usize,
+}
+
+const SPICE_CELL_CHAR_DEFAULT_LENGTH: usize = 128;
+
+impl SpiceCellChar {
+    /**
+     * Create a SpiceCellChar with an arbitrary capacity and length
+     */
+    fn create_with_length(cap: usize, length: usize) -> Self {
+        let mut vec = Vec::new();
+        vec.reserve(cap);
+        Self { vec, length }
+    }
+
+    /**
+     * Change the length used when converting to native SpiceCells. Usefull when the default
+     * of SPICE_CELL_CHAR_DEFAULT_LENGTH = 128 is not enough to store the data returned by spice.
+     */
+    fn set_length(&mut self, l: usize) {
+        self.length = l;
+    }
+}
+
+impl SpiceCell for SpiceCellChar {
+    type Item = String;
+
+    fn create() -> Self {
+        Self {
+            vec: Vec::new(),
+            length: SPICE_CELL_CHAR_DEFAULT_LENGTH,
+        }
+    }
+
+    fn create_capacity(cap: usize) -> Self {
+        let mut vec = Vec::new();
+        vec.reserve(cap);
+        Self {
+            vec,
+            length: SPICE_CELL_CHAR_DEFAULT_LENGTH,
+        }
+    }
+
+    fn raw_vec(&self) -> &Vec<Self::Item> {
+        &self.vec
+    }
+
+    fn raw_vec_mut(&mut self) -> &mut Vec<Self::Item> {
+        &mut self.vec
+    }
+
+    fn from_slice(s: &[Self::Item]) -> Self {
+        let mut vec = Vec::new();
+        vec.extend_from_slice(s);
+
+        Self {
+            vec,
+            length: SPICE_CELL_CHAR_DEFAULT_LENGTH,
+        }
+    }
+
+    fn from_vec(s: &Vec<Self::Item>) -> Self {
+        Self {
+            vec: s.clone(),
+            length: SPICE_CELL_CHAR_DEFAULT_LENGTH,
+        }
+    }
+
+    fn into_vec(self) -> Vec<Self::Item> {
+        self.vec
+    }
+
+    fn push(&mut self, val: Self::Item) {
+        self.vec.push(val);
+    }
+
+    fn pop(&mut self) -> Option<Self::Item> {
+        self.vec.pop()
+    }
+
+    fn slice(&self) -> &[Self::Item] {
+        self.vec.as_slice()
+    }
+
+    fn slice_mut(&mut self) -> &mut [Self::Item] {
+        self.vec.as_mut_slice()
+    }
+
+    unsafe fn as_spice_cell_mut(&mut self) -> SysCell {
+        panic!("It not make sense to call as_spice_cell_mut on CharCells");
+    }
+
+    unsafe fn with_sys_cell<F, R>(&mut self, cb: F) -> Result<R, SpiceCellConversionError>
+    where
+        F: Fn(*mut SysCell) -> R,
+    {
+        // we need everything in continuous memory unfortunately
+        let mut bytes_vec = Vec::new();
+        bytes_vec.resize(self.length * SPICE_CELL_CTRLSZ, 0);
+
+        for s in &self.vec {
+            let mut v = Vec::new();
+            v.reserve(self.length);
+            v.extend_from_slice(s.as_bytes());
+            if v.len() < self.length {
+                v.resize(self.length, 0);
+            } else {
+                return Err(SpiceCellConversionError::LengthToShort);
+            }
+
+            // this is really important
+            assert_eq!(v.len(), self.length);
+            // we done for now
+            bytes_vec.extend(v);
+        }
+        // if we have strings reserved, we append them as 0 bytes
+        if self.vec.capacity() > self.vec.len() {
+            for _ in 0..(self.vec.capacity() - self.vec.len()) {
+                let mut v = Vec::new();
+                v.resize(self.length, 0);
+                bytes_vec.extend(v);
+            }
+        }
+        let mut cell = SysCell {
+            dtype: crate::sys::_SpiceDataType_SPICE_CHR,
+            length: self.length as crate::sys::SpiceInt,
+            size: self.vec.capacity() as crate::sys::SpiceInt,
+            card: self.vec.len() as crate::sys::SpiceInt,
+            isSet: 0,
+            adjust: 0,
+            init: 1,
+            base: bytes_vec.as_ptr() as *mut SpiceChar as *mut c_void,
+            data: bytes_vec[SPICE_CELL_CTRLSZ * self.length..].as_ptr() as *mut SpiceChar
+                as *mut c_void,
+        };
+        // we
+        let res = cb(&mut cell);
+        // since we copied everything we have to transform back everything
+        // skips control bytes
+        let mut new_vec = Vec::new();
+        for i in 0..(cell.card as usize) {
+            // we dont need 0 bytes, the rest is just offset-jumping around in the raw bytes.
+            let offset = SPICE_CELL_CTRLSZ * self.length + (i * self.length) as usize;
+            let mut bytes_now: Vec<u8> = bytes_vec
+                .iter()
+                .skip(offset)
+                .take_while(|x| **x != 0)
+                .cloned()
+                .collect();
+            match String::from_utf8(bytes_now) {
+                Ok(s) => new_vec.push(s),
+                Err(_) => return Err(SpiceCellConversionError::MalformedString),
+            }
+        }
+
+        self.vec.clear();
+        self.vec = new_vec;
+
+        Ok(res)
+    }
 }
 
 #[cfg(test)]
@@ -189,6 +361,7 @@ mod test {
     use super::*;
     use crate::test_tools::test_compare_some;
     use serial_test::serial;
+    use std::ptr::slice_from_raw_parts_mut;
 
     #[test]
     #[serial]
@@ -225,5 +398,78 @@ mod test {
         assert!(d_cell.pop().is_none());
         assert_eq!(d_cell.vec.len(), SPICE_CELL_CTRLSZ);
         assert_eq!(d_cell.vec.capacity(), 123 + SPICE_CELL_CTRLSZ);
+    }
+
+    #[test]
+    #[serial]
+    fn test_char_cell() {
+        let mut char_cell = SpiceCellChar::create_with_length(1024, 64);
+        char_cell.push("Hi!".to_string());
+        char_cell.push("dont!".to_string());
+        char_cell.push("break!".to_string());
+        assert!(test_compare_some(char_cell.pop(), "break!".to_string()));
+        assert!(test_compare_some(char_cell.pop(), "dont!".to_string()));
+        assert!(test_compare_some(char_cell.pop(), "Hi!".to_string()));
+        assert!(char_cell.pop().is_none());
+    }
+
+    #[test]
+    #[serial]
+    fn test_char_cell_basic_transform() {
+        let mut char_cell = SpiceCellChar::create_with_length(1024, 64);
+        char_cell.push("Hi!".to_string());
+        char_cell.push("dont!".to_string());
+        char_cell.push("break!".to_string());
+        let res = unsafe { char_cell.with_sys_cell(|x| {}) };
+        assert!(res.is_ok());
+        assert!(test_compare_some(char_cell.pop(), "break!".to_string()));
+        assert!(test_compare_some(char_cell.pop(), "dont!".to_string()));
+        assert!(test_compare_some(char_cell.pop(), "Hi!".to_string()));
+        assert!(char_cell.pop().is_none());
+    }
+
+    #[test]
+    #[serial]
+    fn test_char_cell_legnth() {
+        let mut char_cell = SpiceCellChar::create_with_length(1024, 5);
+        char_cell.push("12345".to_string());
+        let res = unsafe { char_cell.with_sys_cell(|x| {}) };
+        assert!(test_compare_some(
+            res.err(),
+            SpiceCellConversionError::LengthToShort
+        ));
+    }
+
+    #[test]
+    #[serial]
+    fn test_char_cell_mods() {
+        let mut char_cell = SpiceCellChar::create_with_length(1024, 123);
+        char_cell.push("ABCD".to_string());
+        let res = unsafe {
+            char_cell.with_sys_cell(|x| {
+                *((*x).data as *mut u8) = 0x20;
+            })
+        };
+        assert!(res.is_ok());
+        let s = char_cell.pop().unwrap();
+        assert_eq!(s, " BCD".to_string());
+    }
+
+    #[test]
+    #[serial]
+    fn test_char_cell_decode_fail() {
+        let mut char_cell = SpiceCellChar::create_with_length(1024, 123);
+        char_cell.push("A\x28".to_string());
+        let res = unsafe {
+            char_cell.with_sys_cell(|x| {
+                *((*x).data as *mut u8) = 0xc3;
+            })
+        };
+        assert!(test_compare_some(
+            res.err(),
+            SpiceCellConversionError::MalformedString
+        ));
+        // fail? cell should be unchanged
+        assert!(test_compare_some(char_cell.pop(), "A\x28".to_string()));
     }
 }
