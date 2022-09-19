@@ -564,15 +564,15 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 |---|---|---|---|---|---|
 | `SAELGV_C` | :x: | :x: | _ | _ | Semi-axes of ellipse from generating vectors
 | `SCARD_C` | :heavy_minus_sign: | :x: | _ | Not needed because cells are re-implemented using vectors | Set the cardinality of a cell
-| `SCDECD_C` | :x: | :heavy_check_mark: | _ | _ | Decode spacecraft clock
-| `SCE2C_C` | :x: | :x: | _ | _ | ET to continuous SCLK ticks
-| `SCE2S_C` | :x: | :heavy_check_mark: | _ | _ | ET to SCLK string
+| `SCDECD_C` | :heavy_check_mark: | :heavy_check_mark: | `Spice::scdecd` | _ | Decode spacecraft clock
+| `SCE2C_C` | :heavy_check_mark: | :x: | `Spice::sce2c` | _ | ET to continuous SCLK ticks
+| `SCE2S_C` | :heavy_check_mark: | :heavy_check_mark: | `Spice::sce2s` | _ | ET to SCLK string
 | `SCE2T_C` | :x: | :x: | _ | _ | ET to SCLK ticks
-| `SCENCD_C` | :x: | :heavy_check_mark: | _ | _ | Encode spacecraft clock
+| `SCENCD_C` | :heavy_check_mark: | :heavy_check_mark: | `Spice::scencd` | _ | Encode spacecraft clock
 | `SCFMT_C` | :x: | :x: | _ | _ | Convert SCLK "ticks" to character clock format
 | `SCPART_C` | :x: | :x: | _ | _ | Spacecraft Clock Partition Information
-| `SCS2E_C` | :x: | :heavy_check_mark: | _ | _ | SCLK string to ET
-| `SCT2E_C` | :x: | :heavy_check_mark: | _ | _ | SCLK ticks to ET
+| `SCS2E_C` | :heavy_check_mark: | :heavy_check_mark: | `Spice::scs2e` | _ | SCLK string to ET
+| `SCT2E_C` | :heavy_check_mark: | :heavy_check_mark: | `Spice::sct2e` | _ | SCLK ticks to ET
 | `SCTIKS_C` | :x: | :x: | _ | _ | Convert spacecraft clock string to ticks.
 | `SDIFF_C` | :x: | :x: | _ | _ | Symmetric difference of two sets
 | `SET_C` | :x: | :x: | _ | _ | Compare sets
