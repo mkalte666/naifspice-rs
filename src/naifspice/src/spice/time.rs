@@ -202,6 +202,22 @@ impl Spice {
         self.check_for_error()?;
         Ok(vec_to_string(&bytes))
     }
+
+    ///    Convert ephemeris seconds past J2000 (ET) to integral
+    ///    encoded spacecraft clock (`ticks'). For conversion to
+    ///    fractional ticks, (required for C-kernel production), see
+    ///    the routine sce2c_c.
+    ///
+    /// wraps sce2t_c
+    /// <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/sce2t_c.html>
+    pub fn sce2t(&self, sc: SpiceInt, et: SpiceEt) -> SpiceResult<SpiceSclk> {
+        let mut res: SpiceSclk = 0.0;
+        unsafe {
+            sce2t_c(sc, et, &mut res);
+        }
+        self.check_for_error()?;
+        Ok(res)
+    }
 }
 
 #[cfg(test)]

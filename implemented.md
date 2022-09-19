@@ -567,7 +567,7 @@ This list is directly pulled from the spice documentation: https://naif.jpl.nasa
 | `SCDECD_C` | :heavy_check_mark: | :heavy_check_mark: | `Spice::scdecd` | _ | Decode spacecraft clock
 | `SCE2C_C` | :heavy_check_mark: | :x: | `Spice::sce2c` | _ | ET to continuous SCLK ticks
 | `SCE2S_C` | :heavy_check_mark: | :heavy_check_mark: | `Spice::sce2s` | _ | ET to SCLK string
-| `SCE2T_C` | :x: | :x: | _ | _ | ET to SCLK ticks
+| `SCE2T_C` | :heavy_check_mark: | :x: | `Spice::sce2t` | _ | ET to SCLK ticks
 | `SCENCD_C` | :heavy_check_mark: | :heavy_check_mark: | `Spice::scencd` | _ | Encode spacecraft clock
 | `SCFMT_C` | :x: | :x: | _ | _ | Convert SCLK "ticks" to character clock format
 | `SCPART_C` | :x: | :x: | _ | _ | Spacecraft Clock Partition Information
