@@ -6,6 +6,7 @@ use crate::string_tools::*;
 use crate::sys::*;
 
 pub type SpiceEt = f64;
+pub type SpiceSclk = f64;
 
 #[cfg(feature = "chrono")]
 use chrono::NaiveDateTime;
@@ -107,6 +108,99 @@ impl Spice {
                 msg: format!("{} ({})", e.to_string(), str_time),
             })),
         }
+    }
+
+    /// Convert a spacecraft clock string to ephemeris seconds past
+    ///
+    /// wraps scs2e_c
+    /// <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/scs2e_c.html>
+    pub fn scs2e(&self, scid: SpiceInt, sclkch: &str) -> SpiceResult<SpiceEt> {
+        with_string_ref(sclkch, |s| {
+            let mut res: SpiceEt = 0.0;
+            unsafe {
+                scs2e_c(scid, s, &mut res);
+            }
+
+            self.check_for_error()?;
+            Ok(res)
+        })
+    }
+
+    ///  Convert an epoch specified as ephemeris seconds past J2000 (ET) to a
+    ///   character string representation of a spacecraft clock value (SCLK).
+    ///
+    /// wraps sce2s_c
+    /// <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/sce2s_c.html>
+    pub fn sce2s(&self, sc: SpiceInt, et: SpiceEt) -> SpiceResult<String> {
+        let mut bytes = null_vec(128);
+        unsafe {
+            sce2s_c(sc, et, bytes.len() as SpiceInt, bytes.as_mut_ptr());
+        }
+
+        self.check_for_error()?;
+        Ok(vec_to_string(&bytes))
+    }
+
+    /// Convert encoded spacecraft clock (`ticks') to ephemeris
+    /// seconds past J2000 (ET).
+    ///
+    /// wraps sct2e_c
+    /// <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/sct2e_c.html>
+    pub fn sct2e(&self, sc: SpiceInt, sclkpd: SpiceSclk) -> SpiceResult<SpiceEt> {
+        let mut res: SpiceEt = 0.0;
+        unsafe {
+            sct2e_c(sc, sclkpd, &mut res);
+        }
+        self.check_for_error()?;
+
+        Ok(res)
+    }
+
+    /// Convert ephemeris seconds past J2000 (ET) to continuous encoded
+    /// spacecraft clock (`ticks').  Non-integral tick values may be
+    /// returned.
+    ///
+    /// wraps sce2c_c
+    /// <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/sce2c_c.html>
+    pub fn sce2c(&self, sc: SpiceInt, et: SpiceEt) -> SpiceResult<SpiceSclk> {
+        let mut res: SpiceSclk = 0.0;
+        unsafe {
+            sce2c_c(sc, et, &mut res);
+        }
+
+        self.check_for_error()?;
+        Ok(res)
+    }
+
+    /// Encode a character representation of spacecraft clock time into a
+    /// double precision number.
+    ///
+    /// wraps scencd_c
+    /// <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/scencd_c.html>
+    pub fn scencd(&self, sc: SpiceInt, s: &str) -> SpiceResult<SpiceSclk> {
+        with_string_ref(s, |s| {
+            let mut res: SpiceSclk = 0.0;
+            unsafe {
+                scencd_c(sc, s, &mut res);
+            }
+
+            self.check_for_error()?;
+            Ok(res)
+        })
+    }
+
+    /// Convert a double precision encoding of spacecraft clock time into
+    /// a character representation.
+    ///
+    /// wraps scdecd_c
+    /// <https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/scdecd_c.html>
+    pub fn scdecd(&self, sc: SpiceInt, sclkdp: SpiceSclk) -> SpiceResult<String> {
+        let mut bytes = null_vec(128);
+        unsafe {
+            scdecd_c(sc, sclkdp, bytes.len() as SpiceInt, bytes.as_mut_ptr());
+        }
+        self.check_for_error()?;
+        Ok(vec_to_string(&bytes))
     }
 }
 

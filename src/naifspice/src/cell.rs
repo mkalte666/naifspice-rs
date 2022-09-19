@@ -215,7 +215,10 @@ impl SpiceCellChar {
     fn create_with_element_length(cap: usize, length: usize) -> Self {
         let mut vec = Vec::new();
         vec.reserve(cap);
-        Self { vec, element_length: length }
+        Self {
+            vec,
+            element_length: length,
+        }
     }
 
     /**
@@ -228,7 +231,7 @@ impl SpiceCellChar {
 
     /**
      * Gets the element length (aka length of sys cell)
-    */
+     */
     fn element_length(&self) -> usize {
         self.element_length
     }
@@ -356,7 +359,8 @@ impl SpiceCell for SpiceCellChar {
         let mut new_vec = Vec::new();
         for i in 0..(cell.card as usize) {
             // we dont need 0 bytes, the rest is just offset-jumping around in the raw bytes.
-            let offset = SPICE_CELL_CTRLSZ * self.element_length + (i * self.element_length) as usize;
+            let offset =
+                SPICE_CELL_CTRLSZ * self.element_length + (i * self.element_length) as usize;
             let mut bytes_now: Vec<u8> = bytes_vec
                 .iter()
                 .skip(offset)
