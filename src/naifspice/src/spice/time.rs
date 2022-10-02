@@ -226,8 +226,7 @@ mod test {
     use serial_test::serial;
 
     #[cfg(feature = "chrono")]
-    use chrono::NaiveDate;
-    use chrono::{Datelike, Timelike};
+    use chrono::{Datelike, NaiveDate, Timelike};
 
     #[test]
     #[serial]
